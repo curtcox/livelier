@@ -1,7 +1,7 @@
 /** HashBin controls: snapshot saves approved on hashbin.org, and stale-load guards. */
 class HashBinPanel {
-  constructor({ store, getSnapshot, getFingerprint, onLoad, onSaved }) {
-    Object.assign(this, { store, getSnapshot, getFingerprint, onLoad, onSaved });
+  constructor({ store, getSnapshot, getFingerprint, getVersion = () => 0, onLoad, onSaved }) {
+    Object.assign(this, { store, getSnapshot, getFingerprint, getVersion, onLoad, onSaved });
     this.revision = 0;
     this.status = document.getElementById('hashbin-status');
     this.dialog = document.getElementById('hashbin-dialog');
@@ -39,8 +39,9 @@ class HashBinPanel {
     if (!this.dialog.open) this.dialog.showModal();
     try {
       this.snapshot = await this.getSnapshot();
+      this.version = this.getVersion();
       this.payload = HashBinDocuments.serialize(this.snapshot);
-      this.fingerprint = await this.getFingerprint();
+      this.fingerprint = await this.getFingerprint(this.snapshot);
       // Load the SDK now: the approval popup must open synchronously from the next click.
       await this.store.init();
       if (revision !== this.dialogRevision) return;
@@ -50,7 +51,8 @@ class HashBinPanel {
   }
   async commit() {
     if (this.confirm.disabled || this.saving) return;
-    if (this.fingerprint !== await this.getFingerprint()) { await this.openSave(); return; }
+    // Keep Publish in the click stack so WebKit can open its approval popup.
+    if (this.version !== this.getVersion()) { this.openSave(); return; }
     this.confirm.disabled = true;
     this.saving = true;
     try {

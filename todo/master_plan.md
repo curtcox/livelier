@@ -561,12 +561,13 @@ layers, sharing and downloads, HashBin Publish/CID integration, phone interactio
 samples and generated covers, seven rendered guides, verified offline PWA, and independent Pages
 and three-engine CI workflows.
 
-Validation: 26 Node tests, syntax/generated-asset checks, and the complete Chromium and WebKit
+Validation: 27 Node tests, syntax/generated-asset checks, and the complete Chromium and WebKit
 browser suites passed locally. These include isolation, loop recovery, manipulation/tools, retained
 morphs, share/download round trips, real SDK approved/cancelled redirect recovery, all gallery
 programs, phone gestures, offline reload, and rejection of altered cached bytes. The local macOS
 Firefox binary (including a fresh download) cannot launch its profile under this execution
-host; the Linux Firefox CI job is the remaining browser verification gate.
+host. Linux CI confirmed Firefox’s core, tools, sharing, and loop-guard behavior; phone layout
+and animation timing adjustments are being verified across the final CI matrix.
 
 The public HashBin client ID intentionally remains empty. Register the app with the return URL
 above before enabling saving. CID loading and mocked Publish/redirect validation work without

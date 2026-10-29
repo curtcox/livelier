@@ -17,13 +17,13 @@ try{
   const security=await frame().evaluate(()=>{const r={origin};for(const key of ['localStorage','indexedDB','parent'])try{if(key==='parent')parent.document;else if(key==='indexedDB')indexedDB.open('test');else localStorage.getItem('test');r[key]=false;}catch(_){r[key]=true;}return r;});
   assert.deepEqual(security,{origin:'null',localStorage:true,indexedDB:true,parent:true});assert.equal(await page.locator('iframe').getAttribute('sandbox'),'allow-scripts');
   await page.evaluate(()=>window.postMessage({type:'error',message:'forged'},'*'));assert.ok(!(await page.locator('#console').textContent()).includes('forged'));
-  const a=await frame().evaluate(()=>$('bouncing-ball').position.y);await page.waitForTimeout(80);assert.notEqual(await frame().evaluate(()=>$('bouncing-ball').position.y),a);
+  const a=await frame().evaluate(()=>$('bouncing-ball').position.y);await frame().waitForFunction(before=>$('bouncing-ball').position.y!==before,a,{timeout:5000});assert.notEqual(await frame().evaluate(()=>$('bouncing-ball').position.y),a);
  });
  await test('pause, run, autorun, saved world, and error lines',async()=>{
   await page.click('#pause');await frame().waitForFunction(()=>world.paused);assert.equal(await frame().evaluate(()=>world.paused),true);const before=await frame().evaluate(()=>$('bouncing-ball').position.y);await page.waitForTimeout(60);assert.equal(await frame().evaluate(()=>$('bouncing-ball').position.y),before);await page.click('#pause');await frame().waitForFunction(()=>!world.paused);
   await runCode("world.addMorph(new Morph({name:'scripted',fill:'red'})); console.log('rerun works');");assert.equal(await frame().evaluate(()=>world.withAllSubmorphs().filter(m=>m.name==='scripted').length),1);
   await page.click('#run');await page.waitForTimeout(50);assert.equal(await frame().evaluate(()=>world.withAllSubmorphs().filter(m=>m.name==='scripted').length),1);assert.ok(await frame().evaluate(()=>!!$('circle')));
-  await runCode('const ok=1;\nmissingFunction();');assert.match(await page.locator('#status').textContent(),/line 2/);await page.waitForSelector('.ace_error');assert.equal(await page.locator('.ace_error').count(),1);
+  await runCode('throw null;');assert.ok((await page.locator('#console').textContent()).includes('null'));await runCode('const ok=1;\nmissingFunction();');assert.match(await page.locator('#status').textContent(),/line 2/);await page.waitForSelector('.ace_error');assert.equal(await page.locator('.ace_error').count(),1);
   await page.evaluate(()=>{document.getElementById('autorun').checked=true;LivelierApp.editor.setValue("console.log('auto-ran')",-1);});await page.waitForFunction(()=>document.getElementById('console').textContent.includes('auto-ran'));assert.ok(await frame().evaluate(()=>!!$('circle')));
  });
  await test('halo edits, name, duplicate, delete, and undo',async()=>{
