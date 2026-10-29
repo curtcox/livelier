@@ -561,13 +561,18 @@ layers, sharing and downloads, HashBin Publish/CID integration, phone interactio
 samples and generated covers, seven rendered guides, verified offline PWA, and independent Pages
 and three-engine CI workflows.
 
-Validation: 27 Node tests, syntax/generated-asset checks, and the complete Chromium and WebKit
-browser suites passed locally. These include isolation, loop recovery, manipulation/tools, retained
-morphs, share/download round trips, real SDK approved/cancelled redirect recovery, all gallery
-programs, phone gestures, offline reload, and rejection of altered cached bytes. The local macOS
-Firefox binary (including a fresh download) cannot launch its profile under this execution
-host. Linux CI confirmed Firefox’s core, tools, sharing, and loop-guard behavior; phone layout
-and animation timing adjustments are being verified across the final CI matrix.
+Validation: 27 Node tests and syntax/generated-asset checks pass. Complete browser suites pass
+locally on Chromium and WebKit, and on Chromium, Firefox, and WebKit in Linux CI. The passing
+[CI run](https://github.com/curtcox/livelier/actions/runs/40895757564) verifies code commit
+`15ec00c`. Coverage includes isolation, loop recovery, manipulation/tools, retained morphs,
+share/download round trips, approved/cancelled SDK redirect recovery, all gallery programs,
+phone gestures, offline reload, and rejection of altered cached bytes. A regression test verifies
+that HashBin Publish opens synchronously from the approval click and rechecks changed documents.
+
+GitHub Pages deployment succeeded. A hosted browser check confirmed HTTP 200, a running
+opaque-origin kernel, the 375 px shell layout, and all 20 gallery cards. The local macOS Firefox
+binary cannot launch a profile under this execution host; the successful Linux Firefox suite
+provides that engine's verification.
 
 The public HashBin client ID intentionally remains empty. Register the app with the return URL
 above before enabling saving. CID loading and mocked Publish/redirect validation work without
