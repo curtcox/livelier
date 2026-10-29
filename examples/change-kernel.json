@@ -1,0 +1,345 @@
+{
+  "format": "hashbin-diagram",
+  "version": 1,
+  "type": "livelier",
+  "src": "// Kernel patches last until Restart world.\n// Keep this in the main script to apply it on every load.\nButton.prototype.onMouseDown = function() {\n  this.fill = Color.random();\n  this.rotation += .05;\n};\nconsole.log('Buttons now change color and turn when pressed.');",
+  "livelier": {
+    "kernel": 1,
+    "autorun": true,
+    "world": {
+      "v": 1,
+      "root": {
+        "id": "m120",
+        "class": "World",
+        "props": {
+          "name": "world",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "extent": {
+            "x": 760,
+            "y": 640
+          },
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "rotation": 0,
+          "scale": 1,
+          "fill": "#f4f6ed",
+          "borderWidth": 0,
+          "borderColor": "#25473e",
+          "borderRadius": 8,
+          "borderStyle": "solid",
+          "opacity": 1,
+          "visible": true,
+          "clip": false,
+          "shadow": "",
+          "reactsToPointer": true,
+          "draggable": false,
+          "grabbable": false,
+          "acceptsDrops": true,
+          "text": "",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": 18,
+          "fontColor": "#233e36",
+          "textAlign": "left",
+          "editable": false,
+          "vertices": [],
+          "closed": false,
+          "stroke": "#25473e",
+          "strokeWidth": 2,
+          "url": "",
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "items": [],
+          "selection": -1,
+          "title": "Window",
+          "minimized": false,
+          "html": ""
+        },
+        "scripts": {},
+        "submorphs": [
+          {
+            "id": "m121",
+            "class": "Label",
+            "props": {
+              "name": "heading",
+              "position": {
+                "x": 28,
+                "y": 25
+              },
+              "extent": {
+                "x": 640,
+                "y": 58
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "Change the rules, live.",
+              "fontFamily": "Georgia, serif",
+              "fontSize": 34,
+              "fontColor": "#294b3d",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m122",
+            "class": "Label",
+            "props": {
+              "name": "hint",
+              "position": {
+                "x": 30,
+                "y": 90
+              },
+              "extent": {
+                "x": 640,
+                "y": 65
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "The kernel is JavaScript too. Keep lasting changes in the main script.",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 14,
+              "fontColor": "#7b8d77",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m123",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 40,
+                "y": 200
+              },
+              "extent": {
+                "x": 130,
+                "y": 42
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "Try me",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m124",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 220,
+                "y": 200
+              },
+              "extent": {
+                "x": 130,
+                "y": 42
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "And me",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m125",
+            "class": "Label",
+            "props": {
+              "name": "label",
+              "position": {
+                "x": 40,
+                "y": 300
+              },
+              "extent": {
+                "x": 610,
+                "y": 60
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "Run the script. Every button learns a new trick.",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          }
+        ]
+      },
+      "connections": []
+    }
+  }
+}

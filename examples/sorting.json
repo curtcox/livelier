@@ -1,0 +1,180 @@
+{
+  "format": "hashbin-diagram",
+  "version": 1,
+  "type": "livelier",
+  "src": "const bars=Array.from({length:22},(_,i)=>world.addMorph(new Morph({position:pt(30+i*26,180),extent:pt(22,40+Math.random()*240),fill:'#92af94',borderRadius:3})));\nlet i=0,j=0;\nconst timer=setInterval(()=>{if(i>=bars.length){clearInterval(timer);return;}if(j>=bars.length-i-1){j=0;i++;return;}const a=bars[j],b=bars[j+1];if(a.extent.y>b.extent.y){const p=a.position;a.position=b.position;b.position=p;[bars[j],bars[j+1]]=[b,a];}j++;},60);",
+  "livelier": {
+    "kernel": 1,
+    "autorun": true,
+    "world": {
+      "v": 1,
+      "root": {
+        "id": "m76",
+        "class": "World",
+        "props": {
+          "name": "world",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "extent": {
+            "x": 760,
+            "y": 640
+          },
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "rotation": 0,
+          "scale": 1,
+          "fill": "#f4f6ed",
+          "borderWidth": 0,
+          "borderColor": "#25473e",
+          "borderRadius": 8,
+          "borderStyle": "solid",
+          "opacity": 1,
+          "visible": true,
+          "clip": false,
+          "shadow": "",
+          "reactsToPointer": true,
+          "draggable": false,
+          "grabbable": false,
+          "acceptsDrops": true,
+          "text": "",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": 18,
+          "fontColor": "#233e36",
+          "textAlign": "left",
+          "editable": false,
+          "vertices": [],
+          "closed": false,
+          "stroke": "#25473e",
+          "strokeWidth": 2,
+          "url": "",
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "items": [],
+          "selection": -1,
+          "title": "Window",
+          "minimized": false,
+          "html": ""
+        },
+        "scripts": {},
+        "submorphs": [
+          {
+            "id": "m77",
+            "class": "Label",
+            "props": {
+              "name": "heading",
+              "position": {
+                "x": 28,
+                "y": 25
+              },
+              "extent": {
+                "x": 640,
+                "y": 58
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "Order, emerging.",
+              "fontFamily": "Georgia, serif",
+              "fontSize": 34,
+              "fontColor": "#294b3d",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m78",
+            "class": "Label",
+            "props": {
+              "name": "hint",
+              "position": {
+                "x": 30,
+                "y": 90
+              },
+              "extent": {
+                "x": 640,
+                "y": 65
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "A bubble sort you can watch. Re-run for a new arrangement.",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 14,
+              "fontColor": "#7b8d77",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          }
+        ]
+      },
+      "connections": []
+    }
+  }
+}

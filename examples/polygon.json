@@ -1,0 +1,321 @@
+{
+  "format": "hashbin-diagram",
+  "version": 1,
+  "type": "livelier",
+  "src": "",
+  "livelier": {
+    "kernel": 1,
+    "autorun": true,
+    "world": {
+      "v": 1,
+      "root": {
+        "id": "m65",
+        "class": "World",
+        "props": {
+          "name": "world",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "extent": {
+            "x": 760,
+            "y": 640
+          },
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "rotation": 0,
+          "scale": 1,
+          "fill": "#f4f6ed",
+          "borderWidth": 0,
+          "borderColor": "#25473e",
+          "borderRadius": 8,
+          "borderStyle": "solid",
+          "opacity": 1,
+          "visible": true,
+          "clip": false,
+          "shadow": "",
+          "reactsToPointer": true,
+          "draggable": false,
+          "grabbable": false,
+          "acceptsDrops": true,
+          "text": "",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": 18,
+          "fontColor": "#233e36",
+          "textAlign": "left",
+          "editable": false,
+          "vertices": [],
+          "closed": false,
+          "stroke": "#25473e",
+          "strokeWidth": 2,
+          "url": "",
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "items": [],
+          "selection": -1,
+          "title": "Window",
+          "minimized": false,
+          "html": ""
+        },
+        "scripts": {},
+        "submorphs": [
+          {
+            "id": "m66",
+            "class": "Label",
+            "props": {
+              "name": "heading",
+              "position": {
+                "x": 28,
+                "y": 25
+              },
+              "extent": {
+                "x": 640,
+                "y": 58
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "How many sides?",
+              "fontFamily": "Georgia, serif",
+              "fontSize": 34,
+              "fontColor": "#294b3d",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m67",
+            "class": "Label",
+            "props": {
+              "name": "hint",
+              "position": {
+                "x": 30,
+                "y": 90
+              },
+              "extent": {
+                "x": 640,
+                "y": 65
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "A slider changes the vertices of a live polygon.",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 14,
+              "fontColor": "#7b8d77",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m68",
+            "class": "Path",
+            "props": {
+              "name": "polygon",
+              "position": {
+                "x": 340,
+                "y": 210
+              },
+              "extent": {
+                "x": 220,
+                "y": 220
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#b7b7cf",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [
+                {
+                  "x": 210,
+                  "y": 110
+                },
+                {
+                  "x": 140.90169943749476,
+                  "y": 205.10565162951536
+                },
+                {
+                  "x": 29.098300562505273,
+                  "y": 168.77852522924732
+                },
+                {
+                  "x": 29.09830056250526,
+                  "y": 51.2214747707527
+                },
+                {
+                  "x": 140.90169943749473,
+                  "y": 14.894348370484636
+                }
+              ],
+              "closed": true,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "update": "function update(v){this.vertices=Array.from({length:Math.round(v)},(_,i)=>pt(110+Math.cos(i*Math.PI*2/Math.round(v))*100,110+Math.sin(i*Math.PI*2/Math.round(v))*100));}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m69",
+            "class": "Slider",
+            "props": {
+              "name": "sides",
+              "position": {
+                "x": 40,
+                "y": 260
+              },
+              "extent": {
+                "x": 200,
+                "y": 40
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 5,
+              "min": 3,
+              "max": 12,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          }
+        ]
+      },
+      "connections": [
+        {
+          "source": "m69",
+          "prop": "value",
+          "target": "m68",
+          "method": "update",
+          "converter": null
+        }
+      ]
+    }
+  }
+}

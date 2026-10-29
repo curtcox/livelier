@@ -1,0 +1,180 @@
+{
+  "format": "hashbin-diagram",
+  "version": 1,
+  "type": "livelier",
+  "src": "const paper=world.addMorph(new CanvasMorph({position:pt(30,160),extent:pt(600,390),fill:'#fffdf5'}));\npaper.draw(ctx=>{ctx.clearRect(0,0,600,390);ctx.save();ctx.translate(300,195);ctx.lineWidth=1.5;for(let i=0;i<160;i++){ctx.strokeStyle='hsl('+i*3+' 35% 55%)';ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(i*1.5,0);ctx.stroke();ctx.translate(i*1.5,0);ctx.rotate(2.4);}ctx.restore();});",
+  "livelier": {
+    "kernel": 1,
+    "autorun": true,
+    "world": {
+      "v": 1,
+      "root": {
+        "id": "m79",
+        "class": "World",
+        "props": {
+          "name": "world",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "extent": {
+            "x": 760,
+            "y": 640
+          },
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "rotation": 0,
+          "scale": 1,
+          "fill": "#f4f6ed",
+          "borderWidth": 0,
+          "borderColor": "#25473e",
+          "borderRadius": 8,
+          "borderStyle": "solid",
+          "opacity": 1,
+          "visible": true,
+          "clip": false,
+          "shadow": "",
+          "reactsToPointer": true,
+          "draggable": false,
+          "grabbable": false,
+          "acceptsDrops": true,
+          "text": "",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": 18,
+          "fontColor": "#233e36",
+          "textAlign": "left",
+          "editable": false,
+          "vertices": [],
+          "closed": false,
+          "stroke": "#25473e",
+          "strokeWidth": 2,
+          "url": "",
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "items": [],
+          "selection": -1,
+          "title": "Window",
+          "minimized": false,
+          "html": ""
+        },
+        "scripts": {},
+        "submorphs": [
+          {
+            "id": "m80",
+            "class": "Label",
+            "props": {
+              "name": "heading",
+              "position": {
+                "x": 28,
+                "y": 25
+              },
+              "extent": {
+                "x": 640,
+                "y": 58
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "Draw with a small idea.",
+              "fontFamily": "Georgia, serif",
+              "fontSize": 34,
+              "fontColor": "#294b3d",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m81",
+            "class": "Label",
+            "props": {
+              "name": "hint",
+              "position": {
+                "x": 30,
+                "y": 90
+              },
+              "extent": {
+                "x": 640,
+                "y": 65
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "CanvasMorph gives a script a real 2D drawing context.",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 14,
+              "fontColor": "#7b8d77",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          }
+        ]
+      },
+      "connections": []
+    }
+  }
+}

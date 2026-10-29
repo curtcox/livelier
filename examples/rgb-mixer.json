@@ -1,0 +1,589 @@
+{
+  "format": "hashbin-diagram",
+  "version": 1,
+  "type": "livelier",
+  "src": "",
+  "livelier": {
+    "kernel": 1,
+    "autorun": true,
+    "world": {
+      "v": 1,
+      "root": {
+        "id": "m48",
+        "class": "World",
+        "props": {
+          "name": "world",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "extent": {
+            "x": 760,
+            "y": 640
+          },
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "rotation": 0,
+          "scale": 1,
+          "fill": "#f4f6ed",
+          "borderWidth": 0,
+          "borderColor": "#25473e",
+          "borderRadius": 8,
+          "borderStyle": "solid",
+          "opacity": 1,
+          "visible": true,
+          "clip": false,
+          "shadow": "",
+          "reactsToPointer": true,
+          "draggable": false,
+          "grabbable": false,
+          "acceptsDrops": true,
+          "text": "",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": 18,
+          "fontColor": "#233e36",
+          "textAlign": "left",
+          "editable": false,
+          "vertices": [],
+          "closed": false,
+          "stroke": "#25473e",
+          "strokeWidth": 2,
+          "url": "",
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "items": [],
+          "selection": -1,
+          "title": "Window",
+          "minimized": false,
+          "html": ""
+        },
+        "scripts": {},
+        "submorphs": [
+          {
+            "id": "m49",
+            "class": "Label",
+            "props": {
+              "name": "heading",
+              "position": {
+                "x": 28,
+                "y": 25
+              },
+              "extent": {
+                "x": 640,
+                "y": 58
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "Color is a connection.",
+              "fontFamily": "Georgia, serif",
+              "fontSize": 34,
+              "fontColor": "#294b3d",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m50",
+            "class": "Label",
+            "props": {
+              "name": "hint",
+              "position": {
+                "x": 30,
+                "y": 90
+              },
+              "extent": {
+                "x": 640,
+                "y": 65
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "Move the sliders. Three channels become one color.",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 14,
+              "fontColor": "#7b8d77",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m51",
+            "class": "Morph",
+            "props": {
+              "name": "swatch",
+              "position": {
+                "x": 375,
+                "y": 185
+              },
+              "extent": {
+                "x": 210,
+                "y": 240
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "rgb(120,150,90)",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "update": "function update(){this.fill=Color.rgb($('red').value,$('green').value,$('blue').value);}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m52",
+            "class": "Label",
+            "props": {
+              "name": "label",
+              "position": {
+                "x": 35,
+                "y": 175
+              },
+              "extent": {
+                "x": 250,
+                "y": 50
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "red",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 14,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m53",
+            "class": "Slider",
+            "props": {
+              "name": "red",
+              "position": {
+                "x": 35,
+                "y": 210
+              },
+              "extent": {
+                "x": 200,
+                "y": 40
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 120,
+              "min": 0,
+              "max": 255,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m54",
+            "class": "Label",
+            "props": {
+              "name": "label",
+              "position": {
+                "x": 35,
+                "y": 260
+              },
+              "extent": {
+                "x": 250,
+                "y": 50
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "green",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 14,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m55",
+            "class": "Slider",
+            "props": {
+              "name": "green",
+              "position": {
+                "x": 35,
+                "y": 295
+              },
+              "extent": {
+                "x": 200,
+                "y": 40
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 150,
+              "min": 0,
+              "max": 255,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m56",
+            "class": "Label",
+            "props": {
+              "name": "label",
+              "position": {
+                "x": 35,
+                "y": 345
+              },
+              "extent": {
+                "x": 250,
+                "y": 50
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "blue",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 14,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m57",
+            "class": "Slider",
+            "props": {
+              "name": "blue",
+              "position": {
+                "x": 35,
+                "y": 380
+              },
+              "extent": {
+                "x": 200,
+                "y": 40
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 90,
+              "min": 0,
+              "max": 255,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          }
+        ]
+      },
+      "connections": [
+        {
+          "source": "m53",
+          "prop": "value",
+          "target": "m51",
+          "method": "update",
+          "converter": null
+        },
+        {
+          "source": "m55",
+          "prop": "value",
+          "target": "m51",
+          "method": "update",
+          "converter": null
+        },
+        {
+          "source": "m57",
+          "prop": "value",
+          "target": "m51",
+          "method": "update",
+          "converter": null
+        }
+      ]
+    }
+  }
+}

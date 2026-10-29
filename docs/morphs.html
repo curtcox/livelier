@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#167c80"><title>Morph reference · Livelier</title><link rel="icon" href="../icon.svg"><link rel="stylesheet" href="../src/docs.css?v=1"></head><body><header><a class="brand" href="../"><img src="../icon.svg" width="34" height="34" alt="">Livelier</a><a href="../gallery.html">Sample gallery ↗</a></header><main>
+<!-- Generated from docs/morphs.md by npm run docs. -->
+<h1>Morph reference</h1>
+<p>Every morph has an owner and ordered submorphs. The world is the root. All geometry values are in world units; rotations are radians. Use pt(x, y) to make a Point.</p>
+<h2>Classes</h2>
+<div class="table"><table><thead><tr><th>Class</th><th>Purpose</th><th>Notable properties</th></tr></thead><tbody><tr><td>Morph</td><td>Rectangle and container</td><td>fill, borderRadius, acceptsDrops</td></tr><tr><td>Ellipse</td><td>Circle or ellipse</td><td>extent, fill, borderWidth</td></tr><tr><td>Path</td><td>Open or closed vector path</td><td>vertices, closed, stroke, strokeWidth</td></tr><tr><td>Text</td><td>Editable plain text</td><td>text, editable, fontSize</td></tr><tr><td>Label</td><td>Noneditable text</td><td>text, fontFamily, textAlign</td></tr><tr><td>Image</td><td>Browser image</td><td>url (https or image data URI)</td></tr><tr><td>Button</td><td>Clickable control</td><td>text; action or onMouseUp</td></tr><tr><td>Slider</td><td>Numeric range input</td><td>min, max, value</td></tr><tr><td>List</td><td>Selectable list</td><td>items, selection (index)</td></tr><tr><td>Window</td><td>Tool or content window</td><td>title, minimized</td></tr><tr><td>HTMLMorph</td><td>Arbitrary HTML in the sandbox</td><td>html</td></tr><tr><td>CanvasMorph</td><td>2D drawing surface</td><td>context, draw(callback)</td></tr><tr><td>World</td><td>Root, scheduler, and hand</td><td>paused, zoom, pan, hand</td></tr></tbody></table></div>
+<p>The Image name in user script scope refers to the morph class. To construct a native browser image, use document.createElement('img').</p>
+<h2>Common properties</h2>
+<p>position, extent, and origin are Points. Replace a Point to notify the system: morph.position = morph.position.add(pt(10, 0)). Mutating morph.position.x directly does not notify the renderer or bindings. The same applies to arrays such as items and vertices: assign a new array.</p>
+<p>rotation, scale, opacity, visible, clip, shadow (CSS box shadow), reactsToPointer, draggable, grabbable, and acceptsDrops control behavior. fill accepts a CSS color; rectangles also accept CSS gradient strings. Borders use borderWidth, borderColor, borderRadius, and borderStyle. Text uses fontFamily, fontSize, fontColor, and textAlign. HTMLMorph content executes only within the sandbox’s permissions and CSP.</p>
+<p>Images can retain https URLs or embed data URIs. Remote images need a network connection and may require CORS for canvas exports. Downscale an image before embedding it when the whole document would exceed 5 MiB. HTMLMorph content is intentionally omitted from standalone vector export; SVG exports represent the world’s shapes, controls, text, paths, images, and canvases.</p>
+<h2>Tree and geometry</h2>
+<pre><code class="language-javascript">const panel = world.addMorph(new Morph({acceptsDrops: true}));
+const title = panel.addMorph(new Label({text: 'A panel'}));
+title.remove();
+panel.bringToFront();
+const found = world.get('panel'); // also available as $('panel')
+const globalPoint = panel.globalize(pt(0, 0));
+const localPoint = panel.localize(globalPoint);</code></pre>
+<p>addMorph(morph, index) reparents and inserts at a chosen index. duplicate() makes a copy with fresh IDs. keep() preserves a scripted morph. Local/global transforms include owners’ position, origin, rotation, and scale. morphAt(point) searches the topmost visible morph with pointer reactions; clipping limits children’s hit testing.</p>
+<h2>Events</h2>
+<p>Override onMouseDown, onMouseUp, onMouseMove, onHoverIn, onHoverOut, onDrag, onDrop, onKeyDown, onKeyUp, or onWheel using addScript. Pointer dispatch supports mouse, pen, and touch. The hand reassigns a grabbed morph to a container with acceptsDrops. Keyboard events go to the focused morph. Native controls and text editing retain native input handling.</p>
+<h2>Drawing</h2>
+<pre><code class="language-javascript">const paper = world.addMorph(new CanvasMorph({extent: pt(300, 180)}));
+paper.draw(ctx =&gt; {
+  ctx.fillStyle = 'tomato';
+  ctx.fillRect(25, 25, 100, 80);
+});</code></pre>
+</main></body></html>

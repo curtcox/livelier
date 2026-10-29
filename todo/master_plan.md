@@ -553,3 +553,21 @@ Each phase is one or a few commits pushed to `main`, deploying as it goes.
   with persistent kernel patches; layouts (horizontal and vertical flow); persistent world storage
   on the hosted HashBin run origin, as PythonOnline's "Keep files between runs" does; vector path
   editing handles.
+
+## Implementation record — 2026-10-29
+
+The v1 implementation is present: original kernel and tools, sandboxed shell, saved/scripted program
+layers, sharing and downloads, HashBin Publish/CID integration, phone interactions, 20 original
+samples and generated covers, seven rendered guides, verified offline PWA, and independent Pages
+and three-engine CI workflows.
+
+Validation: 26 Node tests, syntax/generated-asset checks, and the complete Chromium and WebKit
+browser suites passed locally. These include isolation, loop recovery, manipulation/tools, retained
+morphs, share/download round trips, real SDK approved/cancelled redirect recovery, all gallery
+programs, phone gestures, offline reload, and rejection of altered cached bytes. The local macOS
+Firefox binary (including a fresh download) cannot launch its profile under this execution
+host; the Linux Firefox CI job is the remaining browser verification gate.
+
+The public HashBin client ID intentionally remains empty. Register the app with the return URL
+above before enabling saving. CID loading and mocked Publish/redirect validation work without
+that registration. The README describes the execution, persistence, export, and browser limits.

@@ -1,0 +1,1147 @@
+{
+  "format": "hashbin-diagram",
+  "version": 1,
+  "type": "livelier",
+  "src": "",
+  "livelier": {
+    "kernel": 1,
+    "autorun": true,
+    "world": {
+      "v": 1,
+      "root": {
+        "id": "m82",
+        "class": "World",
+        "props": {
+          "name": "world",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "extent": {
+            "x": 760,
+            "y": 640
+          },
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "rotation": 0,
+          "scale": 1,
+          "fill": "#f4f6ed",
+          "borderWidth": 0,
+          "borderColor": "#25473e",
+          "borderRadius": 8,
+          "borderStyle": "solid",
+          "opacity": 1,
+          "visible": true,
+          "clip": false,
+          "shadow": "",
+          "reactsToPointer": true,
+          "draggable": false,
+          "grabbable": false,
+          "acceptsDrops": true,
+          "text": "",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": 18,
+          "fontColor": "#233e36",
+          "textAlign": "left",
+          "editable": false,
+          "vertices": [],
+          "closed": false,
+          "stroke": "#25473e",
+          "strokeWidth": 2,
+          "url": "",
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "items": [],
+          "selection": -1,
+          "title": "Window",
+          "minimized": false,
+          "html": ""
+        },
+        "scripts": {},
+        "submorphs": [
+          {
+            "id": "m83",
+            "class": "Label",
+            "props": {
+              "name": "heading",
+              "position": {
+                "x": 28,
+                "y": 25
+              },
+              "extent": {
+                "x": 640,
+                "y": 58
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "A pocket calculator.",
+              "fontFamily": "Georgia, serif",
+              "fontSize": 34,
+              "fontColor": "#294b3d",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m84",
+            "class": "Label",
+            "props": {
+              "name": "hint",
+              "position": {
+                "x": 30,
+                "y": 90
+              },
+              "extent": {
+                "x": 640,
+                "y": 65
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "transparent",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "A whole small app, made of live morphs.",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 14,
+              "fontColor": "#7b8d77",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m85",
+            "class": "Label",
+            "props": {
+              "name": "display",
+              "position": {
+                "x": 50,
+                "y": 160
+              },
+              "extent": {
+                "x": 285,
+                "y": 70
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#e5eadb",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": true,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "0",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 36,
+              "fontColor": "#233e36",
+              "textAlign": "right",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": []
+          },
+          {
+            "id": "m86",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 50,
+                "y": 245
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "7",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m87",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 124,
+                "y": 245
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "8",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m88",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 198,
+                "y": 245
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "9",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m89",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 272,
+                "y": 245
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "÷",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m90",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 50,
+                "y": 305
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "4",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m91",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 124,
+                "y": 305
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "5",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m92",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 198,
+                "y": 305
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "6",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m93",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 272,
+                "y": 305
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "×",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m94",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 50,
+                "y": 365
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "1",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m95",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 124,
+                "y": 365
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "2",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m96",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 198,
+                "y": 365
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "3",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m97",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 272,
+                "y": 365
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "−",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m98",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 50,
+                "y": 425
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "C",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m99",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 124,
+                "y": 425
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "0",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m100",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 198,
+                "y": 425
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "=",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          },
+          {
+            "id": "m101",
+            "class": "Button",
+            "props": {
+              "name": "button",
+              "position": {
+                "x": 272,
+                "y": 425
+              },
+              "extent": {
+                "x": 64,
+                "y": 48
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#254f43",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": false,
+              "text": "+",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "white",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {
+              "onMouseUp": "function onMouseUp(){const d=$('display');const text=this.text;if(text==='C'){d.text='0';d.pending=null;d.operator=null;return;}if(['+','−','×','÷'].includes(text)){d.pending=Number(d.text);d.operator=text;d.fresh=true;return;}if(text==='='){const a=d.pending,b=Number(d.text);d.text=String(d.operator==='+'?a+b:d.operator==='−'?a-b:d.operator==='×'?a*b:d.operator==='÷'?a/b:b);d.fresh=true;return;}d.text=d.text==='0'||d.fresh?text:d.text+text;d.fresh=false;}"
+            },
+            "submorphs": []
+          }
+        ]
+      },
+      "connections": []
+    }
+  }
+}

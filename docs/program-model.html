@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#167c80"><title>Programs have two layers · Livelier</title><link rel="icon" href="../icon.svg"><link rel="stylesheet" href="../src/docs.css?v=1"></head><body><header><a class="brand" href="../"><img src="../icon.svg" width="34" height="34" alt="">Livelier</a><a href="../gallery.html">Sample gallery ↗</a></header><main>
+<!-- Generated from docs/program-model.md by npm run docs. -->
+<h1>Programs have two layers</h1>
+<p>A document contains a saved world and a main JavaScript script. The saved world contains morph properties, nested morphs, method source, and connections. The main script runs after that world loads.</p>
+<h2>Saved and scripted morphs</h2>
+<p>Morphs created through the parts bin or tools belong to the saved world. Morphs created by the main script, its callbacks, or its managed timers are scripted morphs. A re-run removes them and their stepping, timers, and connections before running the new script. Saved morphs stay in place.</p>
+<p>Direct edits to a scripted morph reset at the next run. Its halo offers Keep in world. This moves the morph and its children into the saved world. Methods from custom subclasses are flattened into scripts on their nearest kernel class so they can reload without the custom class definition.</p>
+<pre><code class="language-javascript">class Speck extends Ellipse {
+  onMouseDown() { this.fill = Color.random(); }
+}
+const speck = world.addMorph(new Speck({position: pt(60, 180)}));
+speck.keep();</code></pre>
+<p>Scripts installed on morphs should use this, world, and $('name') to find state. Their source is saved, so JavaScript closures over local main-script variables do not survive serialization. Store persistent data in morph properties, text, or items. Custom arbitrary properties are live but are not part of the v1 property schema.</p>
+<h2>Kernel changes</h2>
+<p>The kernel is live. You can change Button.prototype.onMouseDown and all buttons will use the new behavior. Kernel changes do not belong to snapshots. Put a lasting patch in the main script. Restart world restores the original kernel.</p>
+<h2>Execution and recovery</h2>
+<p>Run re-runs the main script. Resume continues stepping without re-running it. Pause stops all stepping and the managed setTimeout/setInterval APIs. A main script can use top-level await. Auto-run may repeat network calls and other side effects when you edit; disable it when that is undesirable.</p>
+<p>Loops and function bodies are instrumented with a two-second synchronous execution budget. A stopped loop reports a LoopGuardError. Large synchronous browser builtins or pathological regular expressions can still freeze a tab. The heartbeat detects unresponsive frames where the browser keeps the editor responsive. After an unclean session the editor reopens paused.</p>
+<h2>Document format</h2>
+<p>The JSON envelope uses format hashbin-diagram, version 1, type livelier, a src string, and livelier containing kernel: 1, autorun, and world. Worlds use v: 1 with root and connections. Serialization orders properties and scripts consistently and preserves morph IDs. Unknown classes load as Morph with a warning. Unsupported envelope or kernel versions produce an explanatory error.</p>
+<p>A bare .js file opens with an empty world. The complete envelope is limited to 5 MiB. Local storage may fill earlier; download or save to HashBin if the draft status reports a storage problem.</p>
+</main></body></html>

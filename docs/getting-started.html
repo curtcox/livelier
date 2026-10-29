@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#167c80"><title>A world you can change · Livelier</title><link rel="icon" href="../icon.svg"><link rel="stylesheet" href="../src/docs.css?v=1"></head><body><header><a class="brand" href="../"><img src="../icon.svg" width="34" height="34" alt="">Livelier</a><a href="../gallery.html">Sample gallery ↗</a></header><main>
+<!-- Generated from docs/getting-started.md by npm run docs. -->
+<h1>A world you can change</h1>
+<p>Livelier is a live programming playground. Shapes, text, controls, and your tools share a world. There is no build step or server runtime. Start with the <a href="../gallery.html">sample gallery</a>, or open the <a href="../index.html">editor</a>.</p>
+<h2>Make something yours</h2>
+<ol><li>Alt-click a shape (Option on a Mac), Ctrl/Cmd-click, or long-press on touch to open its halo.</li><li>Drag the move handle. Try resize, rotate, or scale. The name above the halo is editable.</li><li>Choose the color handle to change its style, the i handle to inspect it, or ƒ to edit its scripts.</li><li>Open Parts to add a shape, control, or composite part. Drag a part out on desktop, or tap it on touch.</li><li>Use Undo in the world menu or Ctrl/Cmd+Z to reverse a tool edit.</li></ol>
+<p>The main script runs in the Code pane. Run executes it now; Auto-run waits 750 milliseconds after an edit. Pause stops stepping and managed timers. Restart world reloads the last saved world without running the main script.</p>
+<h2>Try JavaScript</h2>
+<pre><code class="language-javascript">const box = world.addMorph(new Morph({
+  name: 'box', position: pt(50, 160),
+  extent: pt(140, 100), fill: '#9bb6cf'
+}));
+box.addScript(function onMouseDown() {
+  this.fill = Color.random();
+});</code></pre>
+<p>Open Workspace to evaluate smaller ideas. Do it runs the selected text (or all text); Print it also displays its result; Inspect it opens an inspector on that result. Top-level await works. Use this inside the inspector’s evaluator to refer to the inspected object.</p>
+<h2>Save and share</h2>
+<p>The editor saves a local draft on this device. Share produces a URL containing the program. Download keeps a whole program as livelier.json. QR code transfers the link to another device. Large worlds need a short HashBin CID link; saving to HashBin requires the project’s public client registration, while loading works immediately.</p>
+<p>A linked world asks before replacing an existing draft. To open a linked program without executing it, use Don’t run on open in Share. Read the <a href="program-model.html">program model</a>, <a href="tools.html">tools guide</a>, and <a href="sharing.html">sharing guide</a> next.</p>
+<h2>Touch</h2>
+<p>World is the first phone tab. Switch to Code or Console when needed. Long-press for a halo; use Halo mode to select with a tap. Pinch to zoom from 0.25× to 4×, or drag with two fingers to pan. Fit resets zoom and pan. Use More for saving, opening files, and less frequent tools.</p>
+</main></body></html>
