@@ -25,3 +25,7 @@ Run npm test and npm run check. For execution, interaction, persistence, securit
 After updating docs, samples, or shipped assets run the relevant generators, ending with npm run offline. Keep catalog documents, examples JSON, preview SVGs, fingerprints, and Markdown/HTML guides synchronized. Tests verify SDK SRI hashes, CSP pin, offline coverage, and shell evaluation rules.
 
 Follow the plan’s direct-main workflow with commits and pushes when authorized by the task. Preserve lowercase curtcox/livelier and the HashBin return URL https://curtcox.github.io/livelier/. GitHub Pages must use GitHub Actions.
+
+## URL identity and draft recovery
+
+Explicit program, source, example and CID URLs always load their document, independent of browser drafts. Never gate URL loading on a replacement confirmation. The bare homepage opens the default document. Preserve local drafts separately with LocalDrafts and offer Resume saved work. Opening or running a URL must not overwrite saved work; edits retain the previous draft for recovery. Keep stale-load guards and execution isolation.
