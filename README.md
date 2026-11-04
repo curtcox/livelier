@@ -76,10 +76,10 @@ Scripts save source, not JavaScript closures. Use this, $('name'), and the [seri
 
 ## Credits and licenses
 
-The original kernel and application are MIT ([LICENSE](LICENSE)). The editor/sharing lineage comes through [PythonOnline](https://github.com/curtcox/PythonOnline) and [GraphvizOnline](https://github.com/dreampuf/GraphvizOnline); retain [LICENSE-graphvizonline](LICENSE-graphvizonline). Ace 1.4.1 retains its BSD notice in ace/LICENSE. Acorn 8.19.0 and lz-string retain MIT notices in vendor/. The QR encoder is adapted from Project Nayuki with its MIT notice in vendor/fragment-kit-v0.3.2/src/qr/encode.js. HashBin SDK v0.4.0 is vendored unmodified inside Fragment Kit; tests pin its release SRI hash. The icon is original.
+The original kernel and application are MIT ([LICENSE](LICENSE)). The editor/sharing lineage comes through [PythonOnline](https://github.com/curtcox/PythonOnline) and [GraphvizOnline](https://github.com/dreampuf/GraphvizOnline); retain [LICENSE-graphvizonline](LICENSE-graphvizonline). Ace 1.4.1 retains its BSD notice in ace/LICENSE. Acorn 8.19.0 and lz-string retain MIT notices in vendor/. The QR encoder is adapted from Project Nayuki with its MIT notice in vendor/fragment-kit-v0.3.3/src/qr/encode.js. HashBin SDK v0.4.0 is vendored unmodified inside Fragment Kit; tests pin its release SRI hash. The icon is original.
 
 ### URLs and saved work
 
 Program URLs always open the linked document, regardless of browser history or local drafts. The homepage opens the default example. Use **Resume saved work** in the editor controls to recover local drafts. Viewing or running a link keeps saved work; editing it retains the previous draft for recovery.
 
-Shared application tools use the exact Fragment Kit v0.3.2 pin and immutable v2 workflows. See the [migration guide](docs/fragment-kit-migration.html). The original execution kernel and iframe isolation remain app-owned.
+Shared application tools use the exact Fragment Kit v0.3.3 pin and immutable v2 workflows. See the [migration guide](docs/fragment-kit-migration.html). The original execution kernel and iframe isolation remain app-owned.

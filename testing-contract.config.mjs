@@ -7,7 +7,7 @@ test.setTimeout(120000);
 export default {
   ready:'body[data-ready="true"]',editor:'#editor',status:'#status',draftKey:'livelier:draft',more:'#more-toggle',
   share:'#share-open',shareLink:'#share-dialog[open] #share-link',qr:'#qr-open',tabs:['Code','World'],example:'welcome',cachePrefix:manifest.version,offlineAsset:'src/app.css',
-  kitURL:'./vendor/fragment-kit-v0.3.2/src/index.js',
+  kitURL:'./vendor/fragment-kit-v0.3.3/src/index.js',
   isWrittenURL:href=>{const url=new URL(href);return url.searchParams.has('doc')||url.searchParams.has('compressed');},
   getSource:page=>page.evaluate(()=>LivelierApp.editor.getValue()),getDocument:page=>page.evaluate(()=>LivelierApp.snapshot()),
   edit:(page,src)=>page.evaluate(async src=>{document.getElementById('autorun').checked=false;LivelierApp.editor.setValue(src,-1);await LivelierApp.saveDraft();},src),
