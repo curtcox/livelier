@@ -1,0 +1,696 @@
+{
+  "repo": "livelier",
+  "slug": "livelier",
+  "commit": "2b77270c84dce548ef24aead3de9b788ee558e8e",
+  "example": {
+    "id": "welcome",
+    "source": "// Your saved shapes stay put when this script runs.\n// This ball belongs to the script. Try changing its color.\nconst ball = new Ellipse({\n  name: 'bouncing-ball',\n  position: pt(420, 380),\n  extent: pt(36, 36),\n  fill: '#729b78'\n});\nworld.addMorph(ball);\nball.addScript(function step() {\n  this.position = pt(this.position.x,\n    370 + Math.abs(Math.sin(performance.now() / 500)) * 65);\n});\nball.startStepping(16);\nconsole.log('Welcome to Livelier. Make something yours.');",
+    "raw": "{\"format\":\"hashbin-diagram\",\"version\":1,\"type\":\"livelier\",\"src\":\"// Your saved shapes stay put when this script runs.\\n// This ball belongs to the script. Try changing its color.\\nconst ball = new Ellipse({\\n  name: 'bouncing-ball',\\n  position: pt(420, 380),\\n  extent: pt(36, 36),\\n  fill: '#729b78'\\n});\\nworld.addMorph(ball);\\nball.addScript(function step() {\\n  this.position = pt(this.position.x,\\n    370 + Math.abs(Math.sin(performance.now() / 500)) * 65);\\n});\\nball.startStepping(16);\\nconsole.log('Welcome to Livelier. Make something yours.');\",\"livelier\":{\"kernel\":1,\"autorun\":true,\"world\":{\"v\":1,\"root\":{\"id\":\"m1\",\"class\":\"World\",\"props\":{\"name\":\"world\",\"position\":{\"x\":0,\"y\":0},\"extent\":{\"x\":760,\"y\":640},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"#f4f6ed\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":false,\"grabbable\":false,\"acceptsDrops\":true,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[{\"id\":\"m2\",\"class\":\"Label\",\"props\":{\"name\":\"heading\",\"position\":{\"x\":28,\"y\":25},\"extent\":{\"x\":640,\"y\":58},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"Make yourself at home.\",\"fontFamily\":\"Georgia, serif\",\"fontSize\":34,\"fontColor\":\"#294b3d\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m3\",\"class\":\"Label\",\"props\":{\"name\":\"hint\",\"position\":{\"x\":30,\"y\":90},\"extent\":{\"x\":640,\"y\":65},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"This is a live world. Alt-click or long-press anything to change it.\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":14,\"fontColor\":\"#7b8d77\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m4\",\"class\":\"Morph\",\"props\":{\"name\":\"little-square\",\"position\":{\"x\":44,\"y\":190},\"extent\":{\"x\":100,\"y\":100},\"origin\":{\"x\":0,\"y\":0},\"rotation\":-0.12,\"scale\":1,\"fill\":\"#9bb6cf\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":16,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m5\",\"class\":\"Ellipse\",\"props\":{\"name\":\"circle\",\"position\":{\"x\":200,\"y\":185},\"extent\":{\"x\":110,\"y\":110},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"#dfb16c\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m6\",\"class\":\"Path\",\"props\":{\"name\":\"triangle\",\"position\":{\"x\":360,\"y\":190},\"extent\":{\"x\":100,\"y\":100},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"#b4b5d2\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[{\"x\":50,\"y\":0},{\"x\":100,\"y\":100},{\"x\":0,\"y\":100}],\"closed\":true,\"stroke\":\"transparent\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m7\",\"class\":\"Label\",\"props\":{\"name\":\"label\",\"position\":{\"x\":34,\"y\":340},\"extent\":{\"x\":500,\"y\":40},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"Slide a little. Watch the circle change.\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":15,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m8\",\"class\":\"Slider\",\"props\":{\"name\":\"opacity\",\"position\":{\"x\":35,\"y\":385},\"extent\":{\"x\":280,\"y\":40},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":false,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":100,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m9\",\"class\":\"Label\",\"props\":{\"name\":\"label\",\"position\":{\"x\":35,\"y\":478},\"extent\":{\"x\":500,\"y\":85},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"A few shapes. A little JavaScript.\\nA whole world of possibility.\",\"fontFamily\":\"Georgia, serif\",\"fontSize\":20,\"fontColor\":\"#789074\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]}]},\"connections\":[{\"source\":\"m8\",\"prop\":\"value\",\"target\":\"m5\",\"method\":\"opacity\",\"converter\":\"v=>Math.max(.1,v/100)\"}]}}}",
+    "expected": {
+      "src": "// Your saved shapes stay put when this script runs.\n// This ball belongs to the script. Try changing its color.\nconst ball = new Ellipse({\n  name: 'bouncing-ball',\n  position: pt(420, 380),\n  extent: pt(36, 36),\n  fill: '#729b78'\n});\nworld.addMorph(ball);\nball.addScript(function step() {\n  this.position = pt(this.position.x,\n    370 + Math.abs(Math.sin(performance.now() / 500)) * 65);\n});\nball.startStepping(16);\nconsole.log('Welcome to Livelier. Make something yours.');",
+      "livelier": {
+        "kernel": 1,
+        "autorun": true,
+        "world": {
+          "v": 1,
+          "root": {
+            "id": "m1",
+            "class": "World",
+            "props": {
+              "name": "world",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "extent": {
+                "x": 760,
+                "y": 640
+              },
+              "origin": {
+                "x": 0,
+                "y": 0
+              },
+              "rotation": 0,
+              "scale": 1,
+              "fill": "#f4f6ed",
+              "borderWidth": 0,
+              "borderColor": "#25473e",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "opacity": 1,
+              "visible": true,
+              "clip": false,
+              "shadow": "",
+              "reactsToPointer": true,
+              "draggable": false,
+              "grabbable": false,
+              "acceptsDrops": true,
+              "text": "",
+              "fontFamily": "system-ui, sans-serif",
+              "fontSize": 18,
+              "fontColor": "#233e36",
+              "textAlign": "left",
+              "editable": false,
+              "vertices": [],
+              "closed": false,
+              "stroke": "#25473e",
+              "strokeWidth": 2,
+              "url": "",
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "items": [],
+              "selection": -1,
+              "title": "Window",
+              "minimized": false,
+              "html": ""
+            },
+            "scripts": {},
+            "submorphs": [
+              {
+                "id": "m2",
+                "class": "Label",
+                "props": {
+                  "name": "heading",
+                  "position": {
+                    "x": 28,
+                    "y": 25
+                  },
+                  "extent": {
+                    "x": 640,
+                    "y": 58
+                  },
+                  "origin": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "rotation": 0,
+                  "scale": 1,
+                  "fill": "transparent",
+                  "borderWidth": 0,
+                  "borderColor": "#25473e",
+                  "borderRadius": 8,
+                  "borderStyle": "solid",
+                  "opacity": 1,
+                  "visible": true,
+                  "clip": false,
+                  "shadow": "",
+                  "reactsToPointer": true,
+                  "draggable": true,
+                  "grabbable": false,
+                  "acceptsDrops": false,
+                  "text": "Make yourself at home.",
+                  "fontFamily": "Georgia, serif",
+                  "fontSize": 34,
+                  "fontColor": "#294b3d",
+                  "textAlign": "left",
+                  "editable": false,
+                  "vertices": [],
+                  "closed": false,
+                  "stroke": "#25473e",
+                  "strokeWidth": 2,
+                  "url": "",
+                  "value": 0,
+                  "min": 0,
+                  "max": 100,
+                  "items": [],
+                  "selection": -1,
+                  "title": "Window",
+                  "minimized": false,
+                  "html": ""
+                },
+                "scripts": {},
+                "submorphs": []
+              },
+              {
+                "id": "m3",
+                "class": "Label",
+                "props": {
+                  "name": "hint",
+                  "position": {
+                    "x": 30,
+                    "y": 90
+                  },
+                  "extent": {
+                    "x": 640,
+                    "y": 65
+                  },
+                  "origin": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "rotation": 0,
+                  "scale": 1,
+                  "fill": "transparent",
+                  "borderWidth": 0,
+                  "borderColor": "#25473e",
+                  "borderRadius": 8,
+                  "borderStyle": "solid",
+                  "opacity": 1,
+                  "visible": true,
+                  "clip": false,
+                  "shadow": "",
+                  "reactsToPointer": true,
+                  "draggable": true,
+                  "grabbable": false,
+                  "acceptsDrops": false,
+                  "text": "This is a live world. Alt-click or long-press anything to change it.",
+                  "fontFamily": "system-ui, sans-serif",
+                  "fontSize": 14,
+                  "fontColor": "#7b8d77",
+                  "textAlign": "left",
+                  "editable": false,
+                  "vertices": [],
+                  "closed": false,
+                  "stroke": "#25473e",
+                  "strokeWidth": 2,
+                  "url": "",
+                  "value": 0,
+                  "min": 0,
+                  "max": 100,
+                  "items": [],
+                  "selection": -1,
+                  "title": "Window",
+                  "minimized": false,
+                  "html": ""
+                },
+                "scripts": {},
+                "submorphs": []
+              },
+              {
+                "id": "m4",
+                "class": "Morph",
+                "props": {
+                  "name": "little-square",
+                  "position": {
+                    "x": 44,
+                    "y": 190
+                  },
+                  "extent": {
+                    "x": 100,
+                    "y": 100
+                  },
+                  "origin": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "rotation": -0.12,
+                  "scale": 1,
+                  "fill": "#9bb6cf",
+                  "borderWidth": 0,
+                  "borderColor": "#25473e",
+                  "borderRadius": 16,
+                  "borderStyle": "solid",
+                  "opacity": 1,
+                  "visible": true,
+                  "clip": false,
+                  "shadow": "",
+                  "reactsToPointer": true,
+                  "draggable": true,
+                  "grabbable": false,
+                  "acceptsDrops": false,
+                  "text": "",
+                  "fontFamily": "system-ui, sans-serif",
+                  "fontSize": 18,
+                  "fontColor": "#233e36",
+                  "textAlign": "left",
+                  "editable": false,
+                  "vertices": [],
+                  "closed": false,
+                  "stroke": "#25473e",
+                  "strokeWidth": 2,
+                  "url": "",
+                  "value": 0,
+                  "min": 0,
+                  "max": 100,
+                  "items": [],
+                  "selection": -1,
+                  "title": "Window",
+                  "minimized": false,
+                  "html": ""
+                },
+                "scripts": {},
+                "submorphs": []
+              },
+              {
+                "id": "m5",
+                "class": "Ellipse",
+                "props": {
+                  "name": "circle",
+                  "position": {
+                    "x": 200,
+                    "y": 185
+                  },
+                  "extent": {
+                    "x": 110,
+                    "y": 110
+                  },
+                  "origin": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "rotation": 0,
+                  "scale": 1,
+                  "fill": "#dfb16c",
+                  "borderWidth": 0,
+                  "borderColor": "#25473e",
+                  "borderRadius": 8,
+                  "borderStyle": "solid",
+                  "opacity": 1,
+                  "visible": true,
+                  "clip": false,
+                  "shadow": "",
+                  "reactsToPointer": true,
+                  "draggable": true,
+                  "grabbable": false,
+                  "acceptsDrops": false,
+                  "text": "",
+                  "fontFamily": "system-ui, sans-serif",
+                  "fontSize": 18,
+                  "fontColor": "#233e36",
+                  "textAlign": "left",
+                  "editable": false,
+                  "vertices": [],
+                  "closed": false,
+                  "stroke": "#25473e",
+                  "strokeWidth": 2,
+                  "url": "",
+                  "value": 0,
+                  "min": 0,
+                  "max": 100,
+                  "items": [],
+                  "selection": -1,
+                  "title": "Window",
+                  "minimized": false,
+                  "html": ""
+                },
+                "scripts": {},
+                "submorphs": []
+              },
+              {
+                "id": "m6",
+                "class": "Path",
+                "props": {
+                  "name": "triangle",
+                  "position": {
+                    "x": 360,
+                    "y": 190
+                  },
+                  "extent": {
+                    "x": 100,
+                    "y": 100
+                  },
+                  "origin": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "rotation": 0,
+                  "scale": 1,
+                  "fill": "#b4b5d2",
+                  "borderWidth": 0,
+                  "borderColor": "#25473e",
+                  "borderRadius": 8,
+                  "borderStyle": "solid",
+                  "opacity": 1,
+                  "visible": true,
+                  "clip": false,
+                  "shadow": "",
+                  "reactsToPointer": true,
+                  "draggable": true,
+                  "grabbable": false,
+                  "acceptsDrops": false,
+                  "text": "",
+                  "fontFamily": "system-ui, sans-serif",
+                  "fontSize": 18,
+                  "fontColor": "#233e36",
+                  "textAlign": "left",
+                  "editable": false,
+                  "vertices": [
+                    {
+                      "x": 50,
+                      "y": 0
+                    },
+                    {
+                      "x": 100,
+                      "y": 100
+                    },
+                    {
+                      "x": 0,
+                      "y": 100
+                    }
+                  ],
+                  "closed": true,
+                  "stroke": "transparent",
+                  "strokeWidth": 2,
+                  "url": "",
+                  "value": 0,
+                  "min": 0,
+                  "max": 100,
+                  "items": [],
+                  "selection": -1,
+                  "title": "Window",
+                  "minimized": false,
+                  "html": ""
+                },
+                "scripts": {},
+                "submorphs": []
+              },
+              {
+                "id": "m7",
+                "class": "Label",
+                "props": {
+                  "name": "label",
+                  "position": {
+                    "x": 34,
+                    "y": 340
+                  },
+                  "extent": {
+                    "x": 500,
+                    "y": 40
+                  },
+                  "origin": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "rotation": 0,
+                  "scale": 1,
+                  "fill": "transparent",
+                  "borderWidth": 0,
+                  "borderColor": "#25473e",
+                  "borderRadius": 8,
+                  "borderStyle": "solid",
+                  "opacity": 1,
+                  "visible": true,
+                  "clip": false,
+                  "shadow": "",
+                  "reactsToPointer": true,
+                  "draggable": true,
+                  "grabbable": false,
+                  "acceptsDrops": false,
+                  "text": "Slide a little. Watch the circle change.",
+                  "fontFamily": "system-ui, sans-serif",
+                  "fontSize": 15,
+                  "fontColor": "#233e36",
+                  "textAlign": "left",
+                  "editable": false,
+                  "vertices": [],
+                  "closed": false,
+                  "stroke": "#25473e",
+                  "strokeWidth": 2,
+                  "url": "",
+                  "value": 0,
+                  "min": 0,
+                  "max": 100,
+                  "items": [],
+                  "selection": -1,
+                  "title": "Window",
+                  "minimized": false,
+                  "html": ""
+                },
+                "scripts": {},
+                "submorphs": []
+              },
+              {
+                "id": "m8",
+                "class": "Slider",
+                "props": {
+                  "name": "opacity",
+                  "position": {
+                    "x": 35,
+                    "y": 385
+                  },
+                  "extent": {
+                    "x": 280,
+                    "y": 40
+                  },
+                  "origin": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "rotation": 0,
+                  "scale": 1,
+                  "fill": "transparent",
+                  "borderWidth": 0,
+                  "borderColor": "#25473e",
+                  "borderRadius": 8,
+                  "borderStyle": "solid",
+                  "opacity": 1,
+                  "visible": true,
+                  "clip": false,
+                  "shadow": "",
+                  "reactsToPointer": true,
+                  "draggable": false,
+                  "grabbable": false,
+                  "acceptsDrops": false,
+                  "text": "",
+                  "fontFamily": "system-ui, sans-serif",
+                  "fontSize": 18,
+                  "fontColor": "#233e36",
+                  "textAlign": "left",
+                  "editable": false,
+                  "vertices": [],
+                  "closed": false,
+                  "stroke": "#25473e",
+                  "strokeWidth": 2,
+                  "url": "",
+                  "value": 100,
+                  "min": 0,
+                  "max": 100,
+                  "items": [],
+                  "selection": -1,
+                  "title": "Window",
+                  "minimized": false,
+                  "html": ""
+                },
+                "scripts": {},
+                "submorphs": []
+              },
+              {
+                "id": "m9",
+                "class": "Label",
+                "props": {
+                  "name": "label",
+                  "position": {
+                    "x": 35,
+                    "y": 478
+                  },
+                  "extent": {
+                    "x": 500,
+                    "y": 85
+                  },
+                  "origin": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "rotation": 0,
+                  "scale": 1,
+                  "fill": "transparent",
+                  "borderWidth": 0,
+                  "borderColor": "#25473e",
+                  "borderRadius": 8,
+                  "borderStyle": "solid",
+                  "opacity": 1,
+                  "visible": true,
+                  "clip": false,
+                  "shadow": "",
+                  "reactsToPointer": true,
+                  "draggable": true,
+                  "grabbable": false,
+                  "acceptsDrops": false,
+                  "text": "A few shapes. A little JavaScript.\nA whole world of possibility.",
+                  "fontFamily": "Georgia, serif",
+                  "fontSize": 20,
+                  "fontColor": "#789074",
+                  "textAlign": "left",
+                  "editable": false,
+                  "vertices": [],
+                  "closed": false,
+                  "stroke": "#25473e",
+                  "strokeWidth": 2,
+                  "url": "",
+                  "value": 0,
+                  "min": 0,
+                  "max": 100,
+                  "items": [],
+                  "selection": -1,
+                  "title": "Window",
+                  "minimized": false,
+                  "html": ""
+                },
+                "scripts": {},
+                "submorphs": []
+              }
+            ]
+          },
+          "connections": [
+            {
+              "source": "m8",
+              "prop": "value",
+              "target": "m5",
+              "method": "opacity",
+              "converter": "v=>Math.max(.1,v/100)"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "sourceFiles": {
+    "README.md": "f12a8fdad3eaa743e015e59a2dcf0a4b980d0bd2a1f93f418c8f3a85254f9cd0",
+    "docs/getting-started.html": "e3605fbf9de71410ed87825925d587e7f5797fd15d91cc8df77dc3d2e324c0ae",
+    "docs/getting-started.md": "b892a804aab6856ca6cb97ff578522031da6dc5a5f40782d70ee6d5a6199c68d",
+    "docs/morphs.html": "c48c2b84374cba5722287e58465f517b77770e793bf76e05e48ac58f604abf72",
+    "docs/morphs.md": "b0b7002ef082f96d045ce76373fe823d8ec207b76d30630c259e234e465f57e5",
+    "docs/program-model.html": "51c3275449770b767109c0974896e61269b4930f2819b066de9dc92156e42f52",
+    "docs/program-model.md": "c3e42eefa83f63575426bcaeb7385f50c6a2e313dc53d0e7a4bca8f29954647f",
+    "docs/scripts-and-connections.html": "64096b3d75c130486700e7ad7cd34a51d038f3207a997daad67e915875d54472",
+    "docs/scripts-and-connections.md": "809f77971e35a7dd05c6ad8633191104edc4733d18f411987af2c01c0cf6d699",
+    "docs/sharing.html": "0f3f126e5259cf4f46aa318e780168ee064e4553791f7e763de67abf5f912ba4",
+    "docs/sharing.md": "8ea185f6235d2647ea5c07fe5dbc75363df21898976396acf418894fccfdeee6",
+    "docs/shortcuts.html": "f0b9f5d73e29e66ba2e935439f339e8e90f0bad6fb1fd14d3c45b2e9fec6447f",
+    "docs/shortcuts.md": "6c29d99ba7d9750d8e4af2b603d49a7ac9d8f2b97c0da1ce0a51cafb57fc24ec",
+    "docs/tools.html": "c3a994cee5cbb0ffb5b3ff46dd4f98c12a7830e640c9b7d9e44a1efa48a6bee0",
+    "docs/tools.md": "6153970b99bc8ce3fd1abbb277c6e4761c6f23aaeb77dd14e439734231fcbfa4",
+    "index.html": "d479d6a8f67361374beae8456bad4c5be7b35b9ad8513ed3155c5aac554adb7c",
+    "offline-assets.js": "55583029a9703205e0b990907aa2601963b80f3ccb191706236ee70039b0eb39",
+    "service-worker.js": "2df367a82c959ab6087fd758ccfd07d5c4c272f77ff93f44b11c6167c7f92322",
+    "src/app.js": "6e68019dab9a650e2890f98be40c542470bd88fcfa395b547c49dd1ebabcd8d3",
+    "src/console-view.js": "c326e41ff3d3e5a9756e8df84a4585cfd9f9be72bff892f33e3ab398e4d3b667",
+    "src/examples.js": "8fa5a3f55e7a94e4f2500dd1c3f6d0f118bd2a418583bf8c1c69b349460b8384",
+    "src/export.js": "3e56017a1eb8e561f2004280dd7febf32787990b5a8eb729c87388fce07a8388",
+    "src/gallery.js": "c6ca089731881fcb67830afc90148fc9ebcd1245c849aa84fd329f35bcc7aff8",
+    "src/hashbin-panel.js": "0a256c8b007f8947d1019fdf624da3209c353442ba1b2de89a239edd475caf77",
+    "src/hashbin.js": "f2a95ba2ba95d3486169fcf0f1becc008d28af759addb714028a034ab3f3577e",
+    "src/kernel-files.js": "b14ebcd6f269b29f50649d76efa1fa4f3184efe0dfd539702da2ce45f4cea589",
+    "src/local-drafts.js": "63b3e2ab8ad18a3088ff40386bb64e3a2d133ae32fbc7968a662b9069023cb85",
+    "src/offline.js": "208bf7c711b8937db5a84c34cb11908bfd994ea201657aae1f7a35ddcb48eaac",
+    "src/program.js": "4e4f1b03fc30e69f02f255288023c728e3369556dcc61bcc686b926090193d1e",
+    "src/qr.js": "a6821da15236196ed734bc65c81ad0ddc03ef363e3b61dd7f550335114961921",
+    "src/render-scheduler.js": "2ca91d13be1f761a79427318a6096cfb55f6b15954d67047704e12c824e253a1",
+    "src/share-links.js": "435fb754a6484219ff10be56d64c7e0c8edf36021248824917e8c536a3ce59b9",
+    "src/world-bootstrap.js": "9c815397c8a45ff7c88d51ebdf75aa68fafc0e217a20a719cb6513b7b35c3cea",
+    "src/world-host.js": "9753acd747d2569fdadbb14e5f36a34abf1372786ee2e3c73338225dd583ad7d",
+    "tests/assets.test.js": "164ddedf30f184210a33c931c1e7cf6779a8de81a417be0225728956e40e04da",
+    "tests/browser/all.cjs": "9439e20bfcfbdbaccef882c4cfeda75fd455e009f4c5a77b90a4596267e24e71",
+    "tests/browser/server.cjs": "c46422af5e464477d77b88d707dc7d58b1b89f75b9e6cb0e3ca862f41986f4c7",
+    "tests/browser/url-state.cjs": "fe7257b55b36ee9b0d6ff74b245d73adbdfa84fbfc2c5eedb464844dee5cd1ef",
+    "tests/compiler.test.js": "7602d954d7aac8c4e98ffda7ff0e6fc4dc8d23ecc0b77bad7706e64c6fdfe1cb",
+    "tests/drafts.test.js": "d2acc84e28686018a2edda76f28e0167f219dfa031478b2472ed04b0c6e7e74f",
+    "tests/hashbin-panel.test.js": "b0aed3aac77f8d324d1d9c1843379a8da48fad54917794c3a47d520541fc4af1",
+    "tests/kernel-helper.cjs": "f2a804ca3488d9ca78610f8bdd4026278dc582d039340329859525402e745001",
+    "tests/kernel.test.js": "d617400a110fd192e32ef380be003c6c0a5171eee51e8fe5a44393e96a5c4941",
+    "tests/qr.test.js": "29088fb4afec2de59e1840620bcf791efb3e252cc29ff0bb9d0bb9f561d77dd1",
+    "tests/sharing.test.js": "c6223389ed8c8639504d35a36012274a5218e0e22b06d306873da0b864649909"
+  },
+  "storage": [
+    {
+      "file": "src/app.js",
+      "key": "livelier:draft"
+    },
+    {
+      "file": "tests/browser/all.cjs",
+      "key": "test"
+    },
+    {
+      "file": "tests/browser/all.cjs",
+      "key": "livelier:hashbin:return:hashbin:publish:public-test:state"
+    },
+    {
+      "file": "tests/browser/all.cjs",
+      "key": "livelier:session"
+    },
+    {
+      "file": "tests/drafts.test.js",
+      "key": "work"
+    },
+    {
+      "file": "tests/drafts.test.js",
+      "key": "work"
+    },
+    {
+      "file": "tests/drafts.test.js",
+      "key": "work"
+    },
+    {
+      "file": "tests/drafts.test.js",
+      "key": "work"
+    }
+  ],
+  "caches": [],
+  "references": [
+    {
+      "file": "README.md",
+      "href": "https://curtcox.github.io/livelier/gallery.html)**,"
+    },
+    {
+      "file": "docs/sharing.html",
+      "href": "?compressed=;"
+    },
+    {
+      "file": "docs/sharing.html",
+      "href": "?doc=."
+    },
+    {
+      "file": "docs/sharing.html",
+      "href": "?example=id"
+    },
+    {
+      "file": "docs/sharing.md",
+      "href": "?compressed=;"
+    },
+    {
+      "file": "docs/sharing.md",
+      "href": "?doc=."
+    },
+    {
+      "file": "docs/sharing.md",
+      "href": "?example=id"
+    },
+    {
+      "file": "index.html",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+    },
+    {
+      "file": "tests/sharing.test.js",
+      "href": "https://example.com/?example=star"
+    }
+  ],
+  "cases": [
+    {
+      "label": "source fragment",
+      "href": "https://curtcox.github.io/livelier/#%2F%2F%20Your%20saved%20shapes%20stay%20put%20when%20this%20script%20runs.%0A%2F%2F%20This%20ball%20belongs%20to%20the%20script.%20Try%20changing%20its%20color.%0Aconst%20ball%20%3D%20new%20Ellipse(%7B%0A%20%20name%3A%20'bouncing-ball'%2C%0A%20%20position%3A%20pt(420%2C%20380)%2C%0A%20%20extent%3A%20pt(36%2C%2036)%2C%0A%20%20fill%3A%20'%23729b78'%0A%7D)%3B%0Aworld.addMorph(ball)%3B%0Aball.addScript(function%20step()%20%7B%0A%20%20this.position%20%3D%20pt(this.position.x%2C%0A%20%20%20%20370%20%2B%20Math.abs(Math.sin(performance.now()%20%2F%20500))%20*%2065)%3B%0A%7D)%3B%0Aball.startStepping(16)%3B%0Aconsole.log('Welcome%20to%20Livelier.%20Make%20something%20yours.')%3B",
+      "kind": "source",
+      "src": "// Your saved shapes stay put when this script runs.\n// This ball belongs to the script. Try changing its color.\nconst ball = new Ellipse({\n  name: 'bouncing-ball',\n  position: pt(420, 380),\n  extent: pt(36, 36),\n  fill: '#729b78'\n});\nworld.addMorph(ball);\nball.addScript(function step() {\n  this.position = pt(this.position.x,\n    370 + Math.abs(Math.sin(performance.now() / 500)) * 65);\n});\nball.startStepping(16);\nconsole.log('Welcome to Livelier. Make something yours.');"
+    },
+    {
+      "label": "compressed query",
+      "href": "https://curtcox.github.io/livelier/?compressed=PTAEE0HsFcCdQM4EMBuBTAJogFkgDmgogC5ICeoe0xoA7tmgHajHYCWRCAxrG3jbGiMEAOgBQIUABV2RAEZIANotBy0iyIwDmRYpBYNEPPsRHTYFLrm1ttoNsSJdIG2OOfCaC5aAC8oRjRaUABRZT4ENAAKAG8xUACkAFs0AC5QAHI5GEYuWy0AWm9FDIAaeMpIBAc2TXT+KIAWACYABlLQAGYADlaASnKEtAAPYiZieuIozoA2DtmBioAzNmV0jIBiAHZmgE45Le6MsQBfPoBuMVpIWEUMESQMDABZG7xsKOKLsWKHp4BlYwNJZCLjEWrMBBjPBRPqgOIJVgcER4Ko1TR+ShTJGiVHVcGaETDQYJLpbVqgADUoGeSFYDzkCCitPp1UYUQIsCWNySSFyaBEjEgtFhoDAAFZWv04QAqUAzcXfM6XX5QpCwYj-aF4fJRACMM2+HgQLgFGi0UQyAHV1M4Uix9AAZNjoRRsNBuGlIADWaEQkBSSLsZBgsFEGQuQA",
+      "kind": "source",
+      "src": "// Your saved shapes stay put when this script runs.\n// This ball belongs to the script. Try changing its color.\nconst ball = new Ellipse({\n  name: 'bouncing-ball',\n  position: pt(420, 380),\n  extent: pt(36, 36),\n  fill: '#729b78'\n});\nworld.addMorph(ball);\nball.addScript(function step() {\n  this.position = pt(this.position.x,\n    370 + Math.abs(Math.sin(performance.now() / 500)) * 65);\n});\nball.startStepping(16);\nconsole.log('Welcome to Livelier. Make something yours.');"
+    },
+    {
+      "label": "document query",
+      "href": "https://curtcox.github.io/livelier/?doc=N4IgZg9gTgtghgFxALhACzgZzQIwJYB2AtACZ5wDmUcMIANCAG4CmUmeEBKAjAwgJ4AHZihAAbPCwmt6ITFADGogPTKABAE0IAVyhrMcFiX0ZhmfQjj81g7QjUB3NMwJqEaPOcwKoeQfahtAkwAOgAdAlU1ABUPcxw4MTE1HGYxTgpzBAg3Z30fPwQQmKhrBQwCCkIKNTwEcwUIdKhwgkbg+wSktQBeNQJmBzUAUSS-TGYACmAItX6aZmQ1AHIcHTbqoi6xZbpZmwh2BA4CJf9JgBYAJgAGOjUAZgAOG4BKPdc1ZgAPBBcEM4ISYPABs91B732YDwSSWywAxAB2K4AThwiKeywiAF9XgBuCIOaBiEghOAkEgAWWggjQk22+Ii2zJFIAygVzmAggpjpwLMxBJNXmoZp93J4QoJDnUTr0bEDxaEpUcTiFvh85nMHoibmoANRqSmINBknCYSZG9whdgESbCKCQWBwNrMEIECAOIVqdQAVhub2FACo1CCfYyCLiCQRmZhLFAEKy-oJBNVJtwQeH2pgmq70hRJssAOppRowZhuHIAGUkaTwrGKRoA1uXs2XxZU1PwdGwQst8bIJFI61AUKBm1ABmIeAw4HZoEEUAhAswGESoCTR0xpyAoBAIEhkKA8CRRDBuLIFGIsJhRIXiSeGIJd4Ib4eQAQFqI1xvH9LeVw32+FA7hAfhgOxBgfj+AgD1AIDkEREEQLA5AQQuG4IJAaA8CqAC4OAhgUIwhhd0sf8CLkBREhEZBeHAGEp1QeEwAuMAQWYB8QDWKASFYQtj3cCjuN4qAAGEmmgUR4SuH0LkRB4RAYYTWAAJXJPBtFfJ4lOgETE34MQaLkJpj1kCBBDgBQ6hQujGE8PAcEMxdlwYS8-BQMBEgmBhsHJD1RFkKBmEs+poggAAFCBCD+EdkCXbQVxAEhqAoCg4EcmjPLEbyQCodKEgyjyvMSyyFAFeoABFn1feLEr+X4AoYSAYIAMRoGEULkfhY2YGAiG0PB7gMYIiAmXwwFkZqEzwAAvGjuG08BOAQcTmikq4HgU0FZHqhAAEEJAoADxGYMAkEgshLEK5Aspylh4zwMrXwAbQAXVc9IJhPG7ip8pcIGbdbZPkxS5H+5t+JIQTkCuBhdEYkBZEYRIEoomBCDRuB4O4f0GDqXqXveuQ0mYHkThQIg6OOBAnNQfiCBIfyGHRgg8HRubvtuxK0AQGAEZATDvF8fxX2AQXtBwGAaTQF6j2+kAYCuC8r0wV8QErdK0lkJ9zNF99P1QZx1MqbW-3JwCUCuRaUJkzCoP+Td4LQ5CUB9J5MOw3DHYoojMNIxBzZA7xqO3aEklEJdnUwCygpg2RlKgSHoZAhPVskpiZLkhT4901T1M0lBFoT-TaeMiROPMyzrO3Oz2Gu2qPvcn7ssS3zGYcRqd2CnlMDCyLopkOKXKSlK0vr4e8pwAraa5mcFDKkWqt1oqW74KDRCbcsu10CYxDANREDUNAIDLEJJuWtr0bETqAHFmGgKo4CG1g8AmprltZWaaIeC535gtPYogGkiiC4OAHicV2gdHCx1DJnVkBxOo6UZ6-SYKwY4T0UBvQ+ocDiK8cqxl3IDDOwNs5-UIcwJOaBLZw3XJ3ZGYhUbIBAizTG2NcYgHxjAQmPkSZk04BTKmdRS703brIFmbMv6cxQTzPmAVBYcnqKOcWktpaEwgnLU8DxlbXlEBrVIU5HzVU3B+MsogPBx1-CqfhFtkAPBdsgFExEQD2zjjY52hEUChg9r4L2Nj7FOP9uRJhPkqK0zomHBGkdggxwdjpHifEBJUOCVxXOYkJKAOkiQ0GCc1JkALsgIuqSS5GWzOXMyFkrICBrvZceCVG6CDwa3DAojUCBW7qFCKUUYKDwbiPSgY9aa9MntPTKKDSrlUwEvF8jS14NVQLETwtRzBwDUIOcs35SRqAOggIgbkFCNjUNAVZGQiBPmYKrA+BB+DthqNkNQ5RnQUHLHUM+f8ECXw6qITA3U-h9QGkNKOo0X5vyWjBT+c0eC-1BStdJUlEQ4CeCQREiIdpQSgUdUQsDzrOMukg0Zq9UEPQwcgLBIBLw4KkQSghAMjKZKzqDalENEnUJAPDOhKMaLMIxsk+AbCQKcO4cTQyfCAKUz4EIoyIimYK0IBIjmMz0C835vI4WijDzKKllAWkai6AaNQDAC42jVYb2ltrIxb4TFGQkAgGmzBRoAEdtBwCCqbKxeEQDwQuFCmyji7a-AdjYnG9ig3eJwty-CyTfYkX3AHaxRAbghG4LDSiIdaJNQYlJNEOAQQKBBQnShQlUkAKBvSnO8SoC5I0q+dMcS9ICFLqU0yDBK6VJsgwWuDlBnDzcg05u+Dmn+VaSRdpvdOkD1ir05K-S8XOTqblagU8Z19pKvPCZUzXyzxALtTuU0PnXy+T83q-VBr6EBWNV+58wVfx4ItKaxaM6bWYNtWZ+1DowNOtihBV1kEEvuug85mCibkq+gqxltLM4g1kGBgtMMaH83bRytG3LmFYx4OwgVgGeHCqCWKrdErbyEFEczWV7NcHLoYDI5VITVWiw1aowD6iOHyxgD6I1atRgSBfKDHW0yLUGzJXgRQTlLEymsRG24wang+j9dBWCHqeA4w8bRHGobfERv8X7GNQSg6hPmum8OTESBgBwOmJQtaElQySSnItsLiGlvMxW-OWkHPFK+SZCuFTq5pqYDUrtc6e2gYHR3IdXcQqjv7t0idw8p2pSXUMhdIyFXjMXuazd26Qu7vavu1A3yep-JPcNTAQLxqXumhC2it7lr3qARtLaIJUW-HRe+uBF1EHXU3X+x6AGSVAc+mRzdYGS2QbITSmDya2UhfoYwrlAEUN8rxr8wVu9SY4cEbagjDNpXiNI5SnKlG5HUcKLRnyEtNXaoY7qpjp56sfR0agcKxozXLz46Y1AS5yCVGEyAZUon3XwVBMG31kF-WuIjUGpTIbm0+PDfJyN4Fo1kUDiE1N4SM1MRwKAn0JAlYOZg9Z8t1W6XDZSeWyt+TCnltczl9z5Sq5VO8x22piUAvkbkEFzuQUwt9y6TFWdiUYsDJovF-KS7N3JcqqllB6XEZvL3Z1XLvzj0ApGuekFU1wXzUq--WzNXH3Pq3Wit9mKP3wNxe1lBnXiXPQjX6JTxEwfsJsv6Rj8Fg3O96xSvnI2iFbuoNE51sSwbkLG3B9lDDOXEdm8zVDtF0OLcw0Klb5tcPU2EYRrbJHJEKv260lVR2lEnZUVqmWF29UKxRbd41qA9Fa0Mc90AlrMWawMd9s2YnYc-yUz-JxLi5PwT9PY9CqmYeu7t5pxH1idMo-05Ev30cA8WJJyJPHDnCcQdIUvvOeTnOb6gFTsuTasKefp7ZXzQvu2ccC35YLMvQs925+Or3fTYtM4YMM0XYzV0pee2l9eqBWTlzlgrLWq2rFCFiIDlC5DlhWRCbQEVBPKvLQpy4Hp5ZK6noq7AqlYa48A+hvJr5643YG6NZG6oBYqm5tY-p3RoJdaCrAb9YoKDZ2bE7QbMqwasq0KTaIY8rIbR7zYcLx49ZYZJ5xprZp6bYdyR5yr0EEo56Ix54iwF5yCnb0Y9aMamT6pPBsaiAAHHgyB168YN78YtrVwiZBIRoPC4GgQoDPDSbA6ybewwwvBKZD5Q5hp-Y+zw47haZI4pphIz4Rxz4xKL75qsH44iRr5ZJloiRk477Fz1olI07NrH5to+Z1x+bM6X6s5tyDq36c735jqRZP4C4f4Erv7m4Eri6TKS4ErS6lbIE5aHr5bK5Faq5YHXoVZ4E67SQEENavrQLG4tY4oUH4pUFErdakp0G7atzgzgaRHe4UKsHjYcG35TbzTsIsI8ox7g78EEwJ7LYioCLirrZ0zp4SEyqsw7bZ5KoHaUQ0aKGYDKHF46pl4wAohaHV7N5PYGH6yvbiCfGmHmzmGWEoRyTux2EBo26O6Fy2FYTQ7uFw5MLj6xpR6+F6b0QGa+5RxBHYohGWaFoE5dHr7ZKpIxGFwubxFuZlJJF04pGM7pH1JX4tK5EjoP6FFDxzrFGv7zoi7lE5SVHroKrS57RqBgCDAmBwBmDFDCkgGGRqAABShgcA7IqqrQwpTgOYjg94hy+8yodcMI1kiBmWV8t898UAj8z8JWby2BMMIEd6XRGIjiiIhqL6TWAxn6ZulBiUlu4xHuIGWRMxQ2G+LBeJbBE2KxXBM2rCaG-KAhpK+xq2RxYhRG5xUhUxFG1xueh2Ch6qheZ2Jeqhr0mE7QAwIqssxkugZUp4mh+hogqxO0zqTyB4CsrGzMzA7gEA8sxhVSrknAf6g8TAPQAAfJaCaLypMImnQIwMoEGq8ALIWdiNiEAA",
+      "kind": "source",
+      "raw": "{\"format\":\"hashbin-diagram\",\"version\":1,\"type\":\"livelier\",\"src\":\"// Your saved shapes stay put when this script runs.\\n// This ball belongs to the script. Try changing its color.\\nconst ball = new Ellipse({\\n  name: 'bouncing-ball',\\n  position: pt(420, 380),\\n  extent: pt(36, 36),\\n  fill: '#729b78'\\n});\\nworld.addMorph(ball);\\nball.addScript(function step() {\\n  this.position = pt(this.position.x,\\n    370 + Math.abs(Math.sin(performance.now() / 500)) * 65);\\n});\\nball.startStepping(16);\\nconsole.log('Welcome to Livelier. Make something yours.');\",\"livelier\":{\"kernel\":1,\"autorun\":true,\"world\":{\"v\":1,\"root\":{\"id\":\"m1\",\"class\":\"World\",\"props\":{\"name\":\"world\",\"position\":{\"x\":0,\"y\":0},\"extent\":{\"x\":760,\"y\":640},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"#f4f6ed\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":false,\"grabbable\":false,\"acceptsDrops\":true,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[{\"id\":\"m2\",\"class\":\"Label\",\"props\":{\"name\":\"heading\",\"position\":{\"x\":28,\"y\":25},\"extent\":{\"x\":640,\"y\":58},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"Make yourself at home.\",\"fontFamily\":\"Georgia, serif\",\"fontSize\":34,\"fontColor\":\"#294b3d\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m3\",\"class\":\"Label\",\"props\":{\"name\":\"hint\",\"position\":{\"x\":30,\"y\":90},\"extent\":{\"x\":640,\"y\":65},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"This is a live world. Alt-click or long-press anything to change it.\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":14,\"fontColor\":\"#7b8d77\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m4\",\"class\":\"Morph\",\"props\":{\"name\":\"little-square\",\"position\":{\"x\":44,\"y\":190},\"extent\":{\"x\":100,\"y\":100},\"origin\":{\"x\":0,\"y\":0},\"rotation\":-0.12,\"scale\":1,\"fill\":\"#9bb6cf\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":16,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m5\",\"class\":\"Ellipse\",\"props\":{\"name\":\"circle\",\"position\":{\"x\":200,\"y\":185},\"extent\":{\"x\":110,\"y\":110},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"#dfb16c\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m6\",\"class\":\"Path\",\"props\":{\"name\":\"triangle\",\"position\":{\"x\":360,\"y\":190},\"extent\":{\"x\":100,\"y\":100},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"#b4b5d2\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[{\"x\":50,\"y\":0},{\"x\":100,\"y\":100},{\"x\":0,\"y\":100}],\"closed\":true,\"stroke\":\"transparent\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m7\",\"class\":\"Label\",\"props\":{\"name\":\"label\",\"position\":{\"x\":34,\"y\":340},\"extent\":{\"x\":500,\"y\":40},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"Slide a little. Watch the circle change.\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":15,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m8\",\"class\":\"Slider\",\"props\":{\"name\":\"opacity\",\"position\":{\"x\":35,\"y\":385},\"extent\":{\"x\":280,\"y\":40},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":false,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":100,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m9\",\"class\":\"Label\",\"props\":{\"name\":\"label\",\"position\":{\"x\":35,\"y\":478},\"extent\":{\"x\":500,\"y\":85},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"A few shapes. A little JavaScript.\\nA whole world of possibility.\",\"fontFamily\":\"Georgia, serif\",\"fontSize\":20,\"fontColor\":\"#789074\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]}]},\"connections\":[{\"source\":\"m8\",\"prop\":\"value\",\"target\":\"m5\",\"method\":\"opacity\",\"converter\":\"v=>Math.max(.1,v/100)\"}]}}}"
+    },
+    {
+      "label": "document fragment",
+      "href": "https://curtcox.github.io/livelier/#%7B%22format%22%3A%22hashbin-diagram%22%2C%22version%22%3A1%2C%22type%22%3A%22livelier%22%2C%22src%22%3A%22%2F%2F%20Your%20saved%20shapes%20stay%20put%20when%20this%20script%20runs.%5Cn%2F%2F%20This%20ball%20belongs%20to%20the%20script.%20Try%20changing%20its%20color.%5Cnconst%20ball%20%3D%20new%20Ellipse(%7B%5Cn%20%20name%3A%20'bouncing-ball'%2C%5Cn%20%20position%3A%20pt(420%2C%20380)%2C%5Cn%20%20extent%3A%20pt(36%2C%2036)%2C%5Cn%20%20fill%3A%20'%23729b78'%5Cn%7D)%3B%5Cnworld.addMorph(ball)%3B%5Cnball.addScript(function%20step()%20%7B%5Cn%20%20this.position%20%3D%20pt(this.position.x%2C%5Cn%20%20%20%20370%20%2B%20Math.abs(Math.sin(performance.now()%20%2F%20500))%20*%2065)%3B%5Cn%7D)%3B%5Cnball.startStepping(16)%3B%5Cnconsole.log('Welcome%20to%20Livelier.%20Make%20something%20yours.')%3B%22%2C%22livelier%22%3A%7B%22kernel%22%3A1%2C%22autorun%22%3Atrue%2C%22world%22%3A%7B%22v%22%3A1%2C%22root%22%3A%7B%22id%22%3A%22m1%22%2C%22class%22%3A%22World%22%2C%22props%22%3A%7B%22name%22%3A%22world%22%2C%22position%22%3A%7B%22x%22%3A0%2C%22y%22%3A0%7D%2C%22extent%22%3A%7B%22x%22%3A760%2C%22y%22%3A640%7D%2C%22origin%22%3A%7B%22x%22%3A0%2C%22y%22%3A0%7D%2C%22rotation%22%3A0%2C%22scale%22%3A1%2C%22fill%22%3A%22%23f4f6ed%22%2C%22borderWidth%22%3A0%2C%22borderColor%22%3A%22%2325473e%22%2C%22borderRadius%22%3A8%2C%22borderStyle%22%3A%22solid%22%2C%22opacity%22%3A1%2C%22visible%22%3Atrue%2C%22clip%22%3Afalse%2C%22shadow%22%3A%22%22%2C%22reactsToPointer%22%3Atrue%2C%22draggable%22%3Afalse%2C%22grabbable%22%3Afalse%2C%22acceptsDrops%22%3Atrue%2C%22text%22%3A%22%22%2C%22fontFamily%22%3A%22system-ui%2C%20sans-serif%22%2C%22fontSize%22%3A18%2C%22fontColor%22%3A%22%23233e36%22%2C%22textAlign%22%3A%22left%22%2C%22editable%22%3Afalse%2C%22vertices%22%3A%5B%5D%2C%22closed%22%3Afalse%2C%22stroke%22%3A%22%2325473e%22%2C%22strokeWidth%22%3A2%2C%22url%22%3A%22%22%2C%22value%22%3A0%2C%22min%22%3A0%2C%22max%22%3A100%2C%22items%22%3A%5B%5D%2C%22selection%22%3A-1%2C%22title%22%3A%22Window%22%2C%22minimized%22%3Afalse%2C%22html%22%3A%22%22%7D%2C%22scripts%22%3A%7B%7D%2C%22submorphs%22%3A%5B%7B%22id%22%3A%22m2%22%2C%22class%22%3A%22Label%22%2C%22props%22%3A%7B%22name%22%3A%22heading%22%2C%22position%22%3A%7B%22x%22%3A28%2C%22y%22%3A25%7D%2C%22extent%22%3A%7B%22x%22%3A640%2C%22y%22%3A58%7D%2C%22origin%22%3A%7B%22x%22%3A0%2C%22y%22%3A0%7D%2C%22rotation%22%3A0%2C%22scale%22%3A1%2C%22fill%22%3A%22transparent%22%2C%22borderWidth%22%3A0%2C%22borderColor%22%3A%22%2325473e%22%2C%22borderRadius%22%3A8%2C%22borderStyle%22%3A%22solid%22%2C%22opacity%22%3A1%2C%22visible%22%3Atrue%2C%22clip%22%3Afalse%2C%22shadow%22%3A%22%22%2C%22reactsToPointer%22%3Atrue%2C%22draggable%22%3Atrue%2C%22grabbable%22%3Afalse%2C%22acceptsDrops%22%3Afalse%2C%22text%22%3A%22Make%20yourself%20at%20home.%22%2C%22fontFamily%22%3A%22Georgia%2C%20serif%22%2C%22fontSize%22%3A34%2C%22fontColor%22%3A%22%23294b3d%22%2C%22textAlign%22%3A%22left%22%2C%22editable%22%3Afalse%2C%22vertices%22%3A%5B%5D%2C%22closed%22%3Afalse%2C%22stroke%22%3A%22%2325473e%22%2C%22strokeWidth%22%3A2%2C%22url%22%3A%22%22%2C%22value%22%3A0%2C%22min%22%3A0%2C%22max%22%3A100%2C%22items%22%3A%5B%5D%2C%22selection%22%3A-1%2C%22title%22%3A%22Window%22%2C%22minimized%22%3Afalse%2C%22html%22%3A%22%22%7D%2C%22scripts%22%3A%7B%7D%2C%22submorphs%22%3A%5B%5D%7D%2C%7B%22id%22%3A%22m3%22%2C%22class%22%3A%22Label%22%2C%22props%22%3A%7B%22name%22%3A%22hint%22%2C%22position%22%3A%7B%22x%22%3A30%2C%22y%22%3A90%7D%2C%22extent%22%3A%7B%22x%22%3A640%2C%22y%22%3A65%7D%2C%22origin%22%3A%7B%22x%22%3A0%2C%22y%22%3A0%7D%2C%22rotation%22%3A0%2C%22scale%22%3A1%2C%22fill%22%3A%22transparent%22%2C%22borderWidth%22%3A0%2C%22borderColor%22%3A%22%2325473e%22%2C%22borderRadius%22%3A8%2C%22borderStyle%22%3A%22solid%22%2C%22opacity%22%3A1%2C%22visible%22%3Atrue%2C%22clip%22%3Afalse%2C%22shadow%22%3A%22%22%2C%22reactsToPointer%22%3Atrue%2C%22draggable%22%3Atrue%2C%22grabbable%22%3Afalse%2C%22acceptsDrops%22%3Afalse%2C%22text%22%3A%22This%20is%20a%20live%20world.%20Alt-click%20or%20long-press%20anything%20to%20change%20it.%22%2C%22fontFamily%22%3A%22system-ui%2C%20sans-serif%22%2C%22fontSize%22%3A14%2C%22fontColor%22%3A%22%237b8d77%22%2C%22textAlign%22%3A%22left%22%2C%22editable%22%3Afalse%2C%22vertices%22%3A%5B%5D%2C%22closed%22%3Afalse%2C%22stroke%22%3A%22%2325473e%22%2C%22strokeWidth%22%3A2%2C%22url%22%3A%22%22%2C%22value%22%3A0%2C%22min%22%3A0%2C%22max%22%3A100%2C%22items%22%3A%5B%5D%2C%22selection%22%3A-1%2C%22title%22%3A%22Window%22%2C%22minimized%22%3Afalse%2C%22html%22%3A%22%22%7D%2C%22scripts%22%3A%7B%7D%2C%22submorphs%22%3A%5B%5D%7D%2C%7B%22id%22%3A%22m4%22%2C%22class%22%3A%22Morph%22%2C%22props%22%3A%7B%22name%22%3A%22little-square%22%2C%22position%22%3A%7B%22x%22%3A44%2C%22y%22%3A190%7D%2C%22extent%22%3A%7B%22x%22%3A100%2C%22y%22%3A100%7D%2C%22origin%22%3A%7B%22x%22%3A0%2C%22y%22%3A0%7D%2C%22rotation%22%3A-0.12%2C%22scale%22%3A1%2C%22fill%22%3A%22%239bb6cf%22%2C%22borderWidth%22%3A0%2C%22borderColor%22%3A%22%2325473e%22%2C%22borderRadius%22%3A16%2C%22borderStyle%22%3A%22solid%22%2C%22opacity%22%3A1%2C%22visible%22%3Atrue%2C%22clip%22%3Afalse%2C%22shadow%22%3A%22%22%2C%22reactsToPointer%22%3Atrue%2C%22draggable%22%3Atrue%2C%22grabbable%22%3Afalse%2C%22acceptsDrops%22%3Afalse%2C%22text%22%3A%22%22%2C%22fontFamily%22%3A%22system-ui%2C%20sans-serif%22%2C%22fontSize%22%3A18%2C%22fontColor%22%3A%22%23233e36%22%2C%22textAlign%22%3A%22left%22%2C%22editable%22%3Afalse%2C%22vertices%22%3A%5B%5D%2C%22closed%22%3Afalse%2C%22stroke%22%3A%22%2325473e%22%2C%22strokeWidth%22%3A2%2C%22url%22%3A%22%22%2C%22value%22%3A0%2C%22min%22%3A0%2C%22max%22%3A100%2C%22items%22%3A%5B%5D%2C%22selection%22%3A-1%2C%22title%22%3A%22Window%22%2C%22minimized%22%3Afalse%2C%22html%22%3A%22%22%7D%2C%22scripts%22%3A%7B%7D%2C%22submorphs%22%3A%5B%5D%7D%2C%7B%22id%22%3A%22m5%22%2C%22class%22%3A%22Ellipse%22%2C%22props%22%3A%7B%22name%22%3A%22circle%22%2C%22position%22%3A%7B%22x%22%3A200%2C%22y%22%3A185%7D%2C%22extent%22%3A%7B%22x%22%3A110%2C%22y%22%3A110%7D%2C%22origin%22%3A%7B%22x%22%3A0%2C%22y%22%3A0%7D%2C%22rotation%22%3A0%2C%22scale%22%3A1%2C%22fill%22%3A%22%23dfb16c%22%2C%22borderWidth%22%3A0%2C%22borderColor%22%3A%22%2325473e%22%2C%22borderRadius%22%3A8%2C%22borderStyle%22%3A%22solid%22%2C%22opacity%22%3A1%2C%22visible%22%3Atrue%2C%22clip%22%3Afalse%2C%22shadow%22%3A%22%22%2C%22reactsToPointer%22%3Atrue%2C%22draggable%22%3Atrue%2C%22grabbable%22%3Afalse%2C%22acceptsDrops%22%3Afalse%2C%22text%22%3A%22%22%2C%22fontFamily%22%3A%22system-ui%2C%20sans-serif%22%2C%22fontSize%22%3A18%2C%22fontColor%22%3A%22%23233e36%22%2C%22textAlign%22%3A%22left%22%2C%22editable%22%3Afalse%2C%22vertices%22%3A%5B%5D%2C%22closed%22%3Afalse%2C%22stroke%22%3A%22%2325473e%22%2C%22strokeWidth%22%3A2%2C%22url%22%3A%22%22%2C%22value%22%3A0%2C%22min%22%3A0%2C%22max%22%3A100%2C%22items%22%3A%5B%5D%2C%22selection%22%3A-1%2C%22title%22%3A%22Window%22%2C%22minimized%22%3Afalse%2C%22html%22%3A%22%22%7D%2C%22scripts%22%3A%7B%7D%2C%22submorphs%22%3A%5B%5D%7D%2C%7B%22id%22%3A%22m6%22%2C%22class%22%3A%22Path%22%2C%22props%22%3A%7B%22name%22%3A%22triangle%22%2C%22position%22%3A%7B%22x%22%3A360%2C%22y%22%3A190%7D%2C%22extent%22%3A%7B%22x%22%3A100%2C%22y%22%3A100%7D%2C%22origin%22%3A%7B%22x%22%3A0%2C%22y%22%3A0%7D%2C%22rotation%22%3A0%2C%22scale%22%3A1%2C%22fill%22%3A%22%23b4b5d2%22%2C%22borderWidth%22%3A0%2C%22borderColor%22%3A%22%2325473e%22%2C%22borderRadius%22%3A8%2C%22borderStyle%22%3A%22solid%22%2C%22opacity%22%3A1%2C%22visible%22%3Atrue%2C%22clip%22%3Afalse%2C%22shadow%22%3A%22%22%2C%22reactsToPointer%22%3Atrue%2C%22draggable%22%3Atrue%2C%22grabbable%22%3Afalse%2C%22acceptsDrops%22%3Afalse%2C%22text%22%3A%22%22%2C%22fontFamily%22%3A%22system-ui%2C%20sans-serif%22%2C%22fontSize%22%3A18%2C%22fontColor%22%3A%22%23233e36%22%2C%22textAlign%22%3A%22left%22%2C%22editable%22%3Afalse%2C%22vertices%22%3A%5B%7B%22x%22%3A50%2C%22y%22%3A0%7D%2C%7B%22x%22%3A100%2C%22y%22%3A100%7D%2C%7B%22x%22%3A0%2C%22y%22%3A100%7D%5D%2C%22closed%22%3Atrue%2C%22stroke%22%3A%22transparent%22%2C%22strokeWidth%22%3A2%2C%22url%22%3A%22%22%2C%22value%22%3A0%2C%22min%22%3A0%2C%22max%22%3A100%2C%22items%22%3A%5B%5D%2C%22selection%22%3A-1%2C%22title%22%3A%22Window%22%2C%22minimized%22%3Afalse%2C%22html%22%3A%22%22%7D%2C%22scripts%22%3A%7B%7D%2C%22submorphs%22%3A%5B%5D%7D%2C%7B%22id%22%3A%22m7%22%2C%22class%22%3A%22Label%22%2C%22props%22%3A%7B%22name%22%3A%22label%22%2C%22position%22%3A%7B%22x%22%3A34%2C%22y%22%3A340%7D%2C%22extent%22%3A%7B%22x%22%3A500%2C%22y%22%3A40%7D%2C%22origin%22%3A%7B%22x%22%3A0%2C%22y%22%3A0%7D%2C%22rotation%22%3A0%2C%22scale%22%3A1%2C%22fill%22%3A%22transparent%22%2C%22borderWidth%22%3A0%2C%22borderColor%22%3A%22%2325473e%22%2C%22borderRadius%22%3A8%2C%22borderStyle%22%3A%22solid%22%2C%22opacity%22%3A1%2C%22visible%22%3Atrue%2C%22clip%22%3Afalse%2C%22shadow%22%3A%22%22%2C%22reactsToPointer%22%3Atrue%2C%22draggable%22%3Atrue%2C%22grabbable%22%3Afalse%2C%22acceptsDrops%22%3Afalse%2C%22text%22%3A%22Slide%20a%20little.%20Watch%20the%20circle%20change.%22%2C%22fontFamily%22%3A%22system-ui%2C%20sans-serif%22%2C%22fontSize%22%3A15%2C%22fontColor%22%3A%22%23233e36%22%2C%22textAlign%22%3A%22left%22%2C%22editable%22%3Afalse%2C%22vertices%22%3A%5B%5D%2C%22closed%22%3Afalse%2C%22stroke%22%3A%22%2325473e%22%2C%22strokeWidth%22%3A2%2C%22url%22%3A%22%22%2C%22value%22%3A0%2C%22min%22%3A0%2C%22max%22%3A100%2C%22items%22%3A%5B%5D%2C%22selection%22%3A-1%2C%22title%22%3A%22Window%22%2C%22minimized%22%3Afalse%2C%22html%22%3A%22%22%7D%2C%22scripts%22%3A%7B%7D%2C%22submorphs%22%3A%5B%5D%7D%2C%7B%22id%22%3A%22m8%22%2C%22class%22%3A%22Slider%22%2C%22props%22%3A%7B%22name%22%3A%22opacity%22%2C%22position%22%3A%7B%22x%22%3A35%2C%22y%22%3A385%7D%2C%22extent%22%3A%7B%22x%22%3A280%2C%22y%22%3A40%7D%2C%22origin%22%3A%7B%22x%22%3A0%2C%22y%22%3A0%7D%2C%22rotation%22%3A0%2C%22scale%22%3A1%2C%22fill%22%3A%22transparent%22%2C%22borderWidth%22%3A0%2C%22borderColor%22%3A%22%2325473e%22%2C%22borderRadius%22%3A8%2C%22borderStyle%22%3A%22solid%22%2C%22opacity%22%3A1%2C%22visible%22%3Atrue%2C%22clip%22%3Afalse%2C%22shadow%22%3A%22%22%2C%22reactsToPointer%22%3Atrue%2C%22draggable%22%3Afalse%2C%22grabbable%22%3Afalse%2C%22acceptsDrops%22%3Afalse%2C%22text%22%3A%22%22%2C%22fontFamily%22%3A%22system-ui%2C%20sans-serif%22%2C%22fontSize%22%3A18%2C%22fontColor%22%3A%22%23233e36%22%2C%22textAlign%22%3A%22left%22%2C%22editable%22%3Afalse%2C%22vertices%22%3A%5B%5D%2C%22closed%22%3Afalse%2C%22stroke%22%3A%22%2325473e%22%2C%22strokeWidth%22%3A2%2C%22url%22%3A%22%22%2C%22value%22%3A100%2C%22min%22%3A0%2C%22max%22%3A100%2C%22items%22%3A%5B%5D%2C%22selection%22%3A-1%2C%22title%22%3A%22Window%22%2C%22minimized%22%3Afalse%2C%22html%22%3A%22%22%7D%2C%22scripts%22%3A%7B%7D%2C%22submorphs%22%3A%5B%5D%7D%2C%7B%22id%22%3A%22m9%22%2C%22class%22%3A%22Label%22%2C%22props%22%3A%7B%22name%22%3A%22label%22%2C%22position%22%3A%7B%22x%22%3A35%2C%22y%22%3A478%7D%2C%22extent%22%3A%7B%22x%22%3A500%2C%22y%22%3A85%7D%2C%22origin%22%3A%7B%22x%22%3A0%2C%22y%22%3A0%7D%2C%22rotation%22%3A0%2C%22scale%22%3A1%2C%22fill%22%3A%22transparent%22%2C%22borderWidth%22%3A0%2C%22borderColor%22%3A%22%2325473e%22%2C%22borderRadius%22%3A8%2C%22borderStyle%22%3A%22solid%22%2C%22opacity%22%3A1%2C%22visible%22%3Atrue%2C%22clip%22%3Afalse%2C%22shadow%22%3A%22%22%2C%22reactsToPointer%22%3Atrue%2C%22draggable%22%3Atrue%2C%22grabbable%22%3Afalse%2C%22acceptsDrops%22%3Afalse%2C%22text%22%3A%22A%20few%20shapes.%20A%20little%20JavaScript.%5CnA%20whole%20world%20of%20possibility.%22%2C%22fontFamily%22%3A%22Georgia%2C%20serif%22%2C%22fontSize%22%3A20%2C%22fontColor%22%3A%22%23789074%22%2C%22textAlign%22%3A%22left%22%2C%22editable%22%3Afalse%2C%22vertices%22%3A%5B%5D%2C%22closed%22%3Afalse%2C%22stroke%22%3A%22%2325473e%22%2C%22strokeWidth%22%3A2%2C%22url%22%3A%22%22%2C%22value%22%3A0%2C%22min%22%3A0%2C%22max%22%3A100%2C%22items%22%3A%5B%5D%2C%22selection%22%3A-1%2C%22title%22%3A%22Window%22%2C%22minimized%22%3Afalse%2C%22html%22%3A%22%22%7D%2C%22scripts%22%3A%7B%7D%2C%22submorphs%22%3A%5B%5D%7D%5D%7D%2C%22connections%22%3A%5B%7B%22source%22%3A%22m8%22%2C%22prop%22%3A%22value%22%2C%22target%22%3A%22m5%22%2C%22method%22%3A%22opacity%22%2C%22converter%22%3A%22v%3D%3EMath.max(.1%2Cv%2F100)%22%7D%5D%7D%7D%7D",
+      "kind": "source",
+      "raw": "{\"format\":\"hashbin-diagram\",\"version\":1,\"type\":\"livelier\",\"src\":\"// Your saved shapes stay put when this script runs.\\n// This ball belongs to the script. Try changing its color.\\nconst ball = new Ellipse({\\n  name: 'bouncing-ball',\\n  position: pt(420, 380),\\n  extent: pt(36, 36),\\n  fill: '#729b78'\\n});\\nworld.addMorph(ball);\\nball.addScript(function step() {\\n  this.position = pt(this.position.x,\\n    370 + Math.abs(Math.sin(performance.now() / 500)) * 65);\\n});\\nball.startStepping(16);\\nconsole.log('Welcome to Livelier. Make something yours.');\",\"livelier\":{\"kernel\":1,\"autorun\":true,\"world\":{\"v\":1,\"root\":{\"id\":\"m1\",\"class\":\"World\",\"props\":{\"name\":\"world\",\"position\":{\"x\":0,\"y\":0},\"extent\":{\"x\":760,\"y\":640},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"#f4f6ed\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":false,\"grabbable\":false,\"acceptsDrops\":true,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[{\"id\":\"m2\",\"class\":\"Label\",\"props\":{\"name\":\"heading\",\"position\":{\"x\":28,\"y\":25},\"extent\":{\"x\":640,\"y\":58},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"Make yourself at home.\",\"fontFamily\":\"Georgia, serif\",\"fontSize\":34,\"fontColor\":\"#294b3d\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m3\",\"class\":\"Label\",\"props\":{\"name\":\"hint\",\"position\":{\"x\":30,\"y\":90},\"extent\":{\"x\":640,\"y\":65},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"This is a live world. Alt-click or long-press anything to change it.\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":14,\"fontColor\":\"#7b8d77\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m4\",\"class\":\"Morph\",\"props\":{\"name\":\"little-square\",\"position\":{\"x\":44,\"y\":190},\"extent\":{\"x\":100,\"y\":100},\"origin\":{\"x\":0,\"y\":0},\"rotation\":-0.12,\"scale\":1,\"fill\":\"#9bb6cf\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":16,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m5\",\"class\":\"Ellipse\",\"props\":{\"name\":\"circle\",\"position\":{\"x\":200,\"y\":185},\"extent\":{\"x\":110,\"y\":110},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"#dfb16c\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m6\",\"class\":\"Path\",\"props\":{\"name\":\"triangle\",\"position\":{\"x\":360,\"y\":190},\"extent\":{\"x\":100,\"y\":100},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"#b4b5d2\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[{\"x\":50,\"y\":0},{\"x\":100,\"y\":100},{\"x\":0,\"y\":100}],\"closed\":true,\"stroke\":\"transparent\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m7\",\"class\":\"Label\",\"props\":{\"name\":\"label\",\"position\":{\"x\":34,\"y\":340},\"extent\":{\"x\":500,\"y\":40},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"Slide a little. Watch the circle change.\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":15,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m8\",\"class\":\"Slider\",\"props\":{\"name\":\"opacity\",\"position\":{\"x\":35,\"y\":385},\"extent\":{\"x\":280,\"y\":40},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":false,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"\",\"fontFamily\":\"system-ui, sans-serif\",\"fontSize\":18,\"fontColor\":\"#233e36\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":100,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]},{\"id\":\"m9\",\"class\":\"Label\",\"props\":{\"name\":\"label\",\"position\":{\"x\":35,\"y\":478},\"extent\":{\"x\":500,\"y\":85},\"origin\":{\"x\":0,\"y\":0},\"rotation\":0,\"scale\":1,\"fill\":\"transparent\",\"borderWidth\":0,\"borderColor\":\"#25473e\",\"borderRadius\":8,\"borderStyle\":\"solid\",\"opacity\":1,\"visible\":true,\"clip\":false,\"shadow\":\"\",\"reactsToPointer\":true,\"draggable\":true,\"grabbable\":false,\"acceptsDrops\":false,\"text\":\"A few shapes. A little JavaScript.\\nA whole world of possibility.\",\"fontFamily\":\"Georgia, serif\",\"fontSize\":20,\"fontColor\":\"#789074\",\"textAlign\":\"left\",\"editable\":false,\"vertices\":[],\"closed\":false,\"stroke\":\"#25473e\",\"strokeWidth\":2,\"url\":\"\",\"value\":0,\"min\":0,\"max\":100,\"items\":[],\"selection\":-1,\"title\":\"Window\",\"minimized\":false,\"html\":\"\"},\"scripts\":{},\"submorphs\":[]}]},\"connections\":[{\"source\":\"m8\",\"prop\":\"value\",\"target\":\"m5\",\"method\":\"opacity\",\"converter\":\"v=>Math.max(.1,v/100)\"}]}}}"
+    },
+    {
+      "label": "example",
+      "href": "https://curtcox.github.io/livelier/?example=welcome",
+      "kind": "example",
+      "id": "welcome"
+    },
+    {
+      "label": "CID",
+      "href": "https://curtcox.github.io/livelier/#AAAAAAHblX4QGGxHNwppxB6eHSuAp8576cY_Y6KDvtu71nX0qlfjNgrbEtIjR0_XC96gaf_ngBETMeCdFu_uRyzp_NMr9g",
+      "kind": "cid",
+      "cid": "AAAAAAHblX4QGGxHNwppxB6eHSuAp8576cY_Y6KDvtu71nX0qlfjNgrbEtIjR0_XC96gaf_ngBETMeCdFu_uRyzp_NMr9g"
+    }
+  ]
+}

@@ -1,13 +1,20 @@
+import {LocalDrafts,RenderScheduler,HashBinPanel,createShell,mountMobileTabs,createShareDialog,createQrDialog} from '../vendor/fragment-kit-v0.3.2/src/index.js';
+import {config,type,urlState,HashBinDocuments,HashBinStore,LZString} from './fragment-config.mjs';
+import Program from './program.js';
+Object.assign(globalThis,{HashBinDocuments,LZString});
 /* The editor origin never evaluates source. All execution belongs to WorldHost. */
 (async () => {
 const el=id=>document.getElementById(id),storage=Program.storage(),session=Program.storage('sessionStorage');
 const safeGet=key=>{try{return storage?.getItem(key);}catch(_){return null;}},safeSet=(key,value)=>{try{storage?.setItem(key,value);}catch(_){}};
+const oldHeader=document.querySelector('header'),brand=oldHeader.querySelector('.brand'),shell=createShell({config});shell.header.querySelector('.fk-brand').replaceChildren(...brand.childNodes);shell.header.querySelector('.fk-brand').href=new URL('./',location.href).href;oldHeader.remove();shell.toolbar.remove();shell.status.remove();shell.header.querySelector('.fk-more').id='more-toggle';document.querySelector('.toolbar>#more-toggle').remove();
+shell.drawer.body.append(el('more-panel'));el('more-panel').querySelector('a[href="gallery.html"]')?.remove();el('more-panel').hidden=false;el('more-close').remove();for(const id of ['hashbin-save','hashbin-cid','hashbin-load','hashbin-status','hashbin-dialog','share-dialog','qr-dialog'])el(id).remove();
+const errorCount=document.createElement('span');errorCount.id='error-count';document.querySelector('.statusbar').append(errorCount);document.querySelector('.mobile-tabs').remove();
 const drafts=new LocalDrafts({storage,key:'livelier:draft',serialize:value=>HashBinDocuments.serialize(value),parse:value=>HashBinDocuments.parse(value)});
-let dirty=false;
-let program=structuredClone(Examples[0].document),loading=false,ready=false,paused=true,saved=null,snapshotTimer,runTimer,revision=0;
+let dirty=false,navigationError=null,hashbin=null,prepared=null,qrSave=false;
+let program=structuredClone(Examples[0].document),loading=false,ready=false,paused=true,saved=null,snapshotTimer,urlTimer,revision=0,navigationRevision=0;
 const sessionGet=()=>{try{return session?.getItem('livelier:session');}catch(_){return null;}},sessionSet=value=>{try{session?.setItem('livelier:session',value);}catch(_){}};
 let abnormal=sessionGet()==='running';
-const status=text=>el('status').textContent=text;
+const status=text=>el('status').textContent=navigationError??text;
 const editor=ace.edit('editor');editor.setTheme('ace/theme/chrome');editor.session.setUseWorker(false);editor.session.setMode('ace/mode/javascript');editor.setOptions({fontSize:14,tabSize:2,useSoftTabs:true,showPrintMargin:false,enableBasicAutocompletion:true,enableLiveAutocompletion:true});editor.setValue(program.src,-1);
 const api=['world','Morph','Ellipse','Path','Text','Label','Image','Button','Slider','List','Window','HTMLMorph','CanvasMorph','pt','Color','connect','disconnect','inspect'];
 ace.require('ace/ext/language_tools').addCompleter({getCompletions(_editor,_session,_pos,_prefix,callback){callback(null,api.map(value=>({caption:value,value,meta:'Livelier',score:1000})));}});
@@ -23,61 +30,79 @@ const host=new WorldHost(el('world-frame'),{onMessage:data=>{
 },onHang:()=>{status('The world stopped responding. Use More → Restart world.');el('restart').classList.add('primary');}});
 const handleError=error=>{if(error.message!=='World restarted.')status(error.message);};
 function markSession(){sessionSet(paused||document.hidden?'idle':'running');}
-function changed(){dirty=true;revision++;hashbin?.cancelLoad();shareClient.cancel();if(saved){saved=null;const url=new URL(location.href);url.hash='';history.replaceState(null,'',url);}if(drafts.message)drafts.message.textContent='Saving draft…';}
-async function snapshot(){if(ready)program.livelier.world=await host.request('snapshot');program.src=editor.getValue();program.livelier.autorun=el('autorun').checked;return structuredClone(program);}
+function changed(){dirty=true;revision++;navigationRevision++;hashbin?.cancelLoad();navigationError=null;saved=null;urlState.cancel();clearTimeout(urlTimer);const current=revision;urlTimer=setTimeout(async()=>{try{const doc=await snapshot();if(current===revision)urlState.write(doc,{run:!paused});}catch(error){handleError(error);}},300);if(drafts.message)drafts.message.textContent='Saving draft…';}
+async function snapshot(){const version=revision,source=editor.getValue(),autorun=el('autorun').checked,world=ready?await host.request('snapshot'):program.livelier.world;if(version!==revision)throw Error('The world changed while taking its snapshot. Try again.');program={src:source,livelier:{kernel:1,autorun,world}};return structuredClone(program);}
 async function saveDraft(){const p=await snapshot();if(drafts.attempt(p,dirty)){dirty=false;}return p;}
-function setTab(tab){document.body.dataset.tab=tab;for(const b of document.querySelectorAll('.mobile-tabs button'))b.setAttribute('aria-selected',String(b.dataset.tab===tab));editor.resize();}
-for(const b of document.querySelectorAll('.mobile-tabs button'))b.onclick=()=>setTab(b.dataset.tab);
+const media=matchMedia('(max-width:767px)'),codePane=document.querySelector('.editor-pane'),worldPane=document.querySelector('.world-pane'),consolePane=document.querySelector('.console-pane');
+const moveConsole=()=>{(media.matches?el('layout'):codePane).append(consolePane);editor.setFontSize(media.matches?16:14);};moveConsole();media.addEventListener('change',moveConsole);
+const tabNames=['code','world','console'];const tabs=mountMobileTabs({container:document.querySelector('.toolbar'),panels:[{label:'Code',panel:codePane},{label:'World',panel:worldPane},{label:'Console',panel:consolePane}],onChange:index=>{document.body.dataset.tab=tabNames[index];editor.resize();}});
+function setTab(tab){tabs.select(tabNames.indexOf(tab));}setTab('world');
+const scheduler=new RenderScheduler({detect:()=>{},render:()=>run().catch(handleError),renderDelay:750});
 async function start(run){loading=true;ready=false;paused=!run;el('pause').textContent=paused?'Resume':'❚❚ Pause';status('Loading kernel…');clearErrors();try{await host.start(program,{run});ready=true;status(errors?el('status').textContent:run?'Running':'Paused');}finally{loading=false;markSession();}}
-async function loadProgram(next,{run=true,ask=true,cid=null}={}){
-  if(ask&&!await confirmReplace())return false;
-  clearTimeout(runTimer);clearTimeout(snapshotTimer);await saveDraft();drafts.opened();dirty=false;loading=true;hashbin?.cancelLoad();revision++;program=HashBinDocuments.normalize(next);editor.setValue(program.src,-1);el('autorun').checked=program.livelier.autorun;
-  await start(run);await saveDraft();if(cid){const fingerprint=await Program.fingerprint(program);saved={cid,fingerprint};history.replaceState(null,'',HashBinDocuments.link(location.href,cid));}return true;
+async function loadProgram(next,{run=true,cid=null}={}){
+ navigationError=null;urlState.cancel();clearTimeout(urlTimer);scheduler.cancel();clearTimeout(snapshotTimer);await saveDraft();
+ const own=++navigationRevision;drafts.opened();dirty=false;loading=true;hashbin?.cancelLoad();revision++;program=HashBinDocuments.normalize(next);editor.setValue(program.src,-1);el('autorun').checked=program.livelier.autorun;
+ await start(run);if(own!==navigationRevision)return false;await saveDraft();
+ if(cid){const fingerprint=revision;saved={cid,fingerprint};history.replaceState(null,'',urlState.link(location.href,cid));}
+ else history.replaceState(null,'',urlState.build(program,{run}).href);return true;
 }
-function confirmReplace(){return new Promise(resolve=>{el('load-dialog').showModal();el('load-keep').onclick=()=>{el('load-dialog').close();resolve(false);};el('load-replace').onclick=()=>{el('load-dialog').close();resolve(true);};el('load-dialog').oncancel=()=>resolve(false);});}
-async function run(){if(!ready)return;clearTimeout(runTimer);clearErrors();await host.request('run',{src:editor.getValue()});await saveDraft();}
+async function run(){navigationError=null;if(!ready)return;scheduler.cancel();clearErrors();await host.request('run',{src:editor.getValue()});await saveDraft();}
 el('autorun').checked=program.livelier.autorun;
-editor.session.on('change',()=>{if(loading)return;program.src=editor.getValue();changed();clearTimeout(runTimer);if(el('autorun').checked)runTimer=setTimeout(()=>run().catch(handleError),750);clearTimeout(snapshotTimer);snapshotTimer=setTimeout(()=>saveDraft().catch(handleError),1000);});
+editor.session.on('change',()=>{if(loading)return;program.src=editor.getValue();changed();scheduler.cancel();if(el('autorun').checked)scheduler.schedule({detect:false});clearTimeout(snapshotTimer);snapshotTimer=setTimeout(()=>saveDraft().catch(handleError),1000);});
 editor.commands.addCommand({name:'run',bindKey:{win:'Ctrl-Enter',mac:'Command-Enter'},exec:()=>run().catch(handleError)});
-el('run').onclick=()=>run().catch(handleError);el('pause').onclick=()=>{clearTimeout(runTimer);host.request(paused?'resume':'pause').catch(handleError);};
-el('autorun').onchange=()=>{program.livelier.autorun=el('autorun').checked;clearTimeout(runTimer);changed();saveDraft().catch(handleError);};
-el('restart').onclick=async()=>{clearTimeout(runTimer);await start(false);el('restart').classList.remove('primary');};
+el('run').onclick=()=>run().catch(handleError);el('pause').onclick=()=>{scheduler.cancel();host.request(paused?'resume':'pause').catch(handleError);};
+el('autorun').onchange=()=>{program.livelier.autorun=el('autorun').checked;scheduler.cancel();changed();saveDraft().catch(handleError);};
+el('restart').onclick=async()=>{scheduler.cancel();await start(false);el('restart').classList.remove('primary');};
 el('new-world').onclick=()=>loadProgram(Program.empty(),{run:false}).catch(handleError);
 el('halo-mode').onchange=()=>host.request('halo-mode',{value:el('halo-mode').checked}).catch(handleError);el('fit').onclick=()=>host.request('fit').catch(handleError);
 for(const [id,name]of [['parts-open','parts'],['workspace-open','workspace'],['world-menu-open','menu'],['inspector-open','inspector']])el(id).onclick=()=>host.request('tool',{name}).catch(handleError);
 for(const type of ['undo','redo'])el(type).onclick=()=>host.request(type).catch(handleError);
 for(const button of document.querySelectorAll('[data-trigger]'))button.onclick=()=>el(button.dataset.trigger).click();
-el('more-toggle').onclick=()=>{el('more-panel').hidden=!el('more-panel').hidden;el('more-toggle').setAttribute('aria-expanded',String(!el('more-panel').hidden));};el('more-close').onclick=()=>{el('more-panel').hidden=true;el('more-toggle').setAttribute('aria-expanded','false');};
 el('hide-editor').onclick=()=>{const hidden=document.body.classList.toggle('hide-editor');el('hide-editor').textContent=hidden?'Show editor':'Hide editor';el('hide-editor').setAttribute('aria-pressed',String(hidden));editor.resize();};
 el('console-clear').onclick=()=>{consoleView.clear();clearErrors();};el('console-toggle').onclick=()=>{const closed=document.querySelector('.console-pane').classList.toggle('collapsed');el('console-toggle').setAttribute('aria-expanded',String(!closed));editor.resize();};
 const splitter=el('splitter');function split(value){value=Math.max(20,Math.min(70,value));document.documentElement.style.setProperty('--code-width',value+'%');splitter.setAttribute('aria-valuenow',String(Math.round(value)));editor.resize();}
 splitter.onpointerdown=evt=>{evt.preventDefault();splitter.setPointerCapture(evt.pointerId);const overlay=document.createElement('div');Object.assign(overlay.style,{position:'fixed',inset:0,zIndex:99,cursor:'col-resize'});document.body.append(overlay);const move=e=>split(e.clientX/innerWidth*100);document.addEventListener('pointermove',move);document.addEventListener('pointerup',()=>{document.removeEventListener('pointermove',move);overlay.remove();},{once:true});};splitter.onkeydown=evt=>{if(['ArrowLeft','ArrowRight'].includes(evt.key)){evt.preventDefault();split(Number(splitter.getAttribute('aria-valuenow'))+(evt.key==='ArrowRight'?2:-2));}};
 addEventListener('resize',()=>editor.resize());
 el('open-file').onclick=()=>el('file-input').click();el('file-input').onchange=async evt=>{try{const file=evt.target.files[0];if(!file)return;if(file.size>HashBinDocuments.MAX_BYTES)throw Error('Files are limited to 5 MiB.');await loadProgram(HashBinDocuments.parse(await file.text()));}catch(e){handleError(e);}finally{evt.target.value='';}};
-const shareClient=new ShareClient();let currentLinks,qrSource;
-async function links(){const p=await snapshot(),fingerprint=await Program.fingerprint(p),run=!el('share-paused').checked;if(saved?.fingerprint===fingerprint){const url=new URL(HashBinDocuments.link(location.href,saved.cid));if(!run)url.searchParams.set('run','0');return {long:url.href,fallback:url.href};}return ShareLinks.build({url:location.href,...p,compress:LZString.compressToEncodedURIComponent,run});}
-async function updateLinks(){currentLinks=await links();el('share-url').value=currentLinks.long;el('share-status').textContent=currentLinks.long.length>20000?'This world makes a long link. Save to HashBin for a shorter one.':'';}
-async function openShare(){el('share-dialog').showModal();await updateLinks();}el('share-open').onclick=()=>openShare().catch(handleError);el('share-paused').onchange=()=>updateLinks().catch(handleError);
-el('copy-link').onclick=async()=>{try{await navigator.clipboard.writeText(el('share-url').value);el('share-status').textContent='Link copied.';}catch(_){el('share-url').select();el('share-status').textContent='Select and copy the link above.';}};
-el('shorten-link').onclick=async()=>{el('shorten-link').disabled=true;el('share-status').textContent='Shortening…';try{const result=await shareClient.shorten(currentLinks);if(result){el('share-url').value=result.url;el('share-status').textContent=result.error?.message||'Short link ready.';}}finally{el('shorten-link').disabled=false;}};el('share-dialog').addEventListener('close',()=>shareClient.cancel());
-el('qr-open').onclick=async()=>{try{const link=(await links()).long,qr=encodeQr(link);el('qr-notes').textContent=qrNotes(link,qr);el('qr-image').replaceChildren();el('qr-svg').disabled=el('qr-png').disabled=!qr;if(qr){qrSource=qrSvg(qr);const img=document.createElement('img');img.src=URL.createObjectURL(new Blob([qrSource],{type:'image/svg+xml'}));img.onload=()=>URL.revokeObjectURL(img.src);img.alt='QR code of the current world';el('qr-image').append(img);}el('qr-dialog').showModal();}catch(e){handleError(e);}};
-el('qr-svg').onclick=()=>Exports.download(qrSource,'livelier-qr.svg','image/svg+xml');el('qr-png').onclick=async()=>{try{Exports.download(await Exports.svgToPNG(qrSource),'livelier-qr.png','image/png');}catch(e){handleError(e);}};
-el('download-open').onclick=()=>el('download-dialog').showModal();for(const button of document.querySelectorAll('[data-download]'))button.onclick=async()=>{try{switch(button.dataset.download){case'json':Exports.download(HashBinDocuments.serialize(await snapshot()),'livelier.json','application/json');break;case'js':Exports.download(editor.getValue(),'main.js','text/javascript');break;case'txt':Exports.download(consoleView.export(),'console.txt');break;case'svg':Exports.download(await host.request('svg'),'world.svg','image/svg+xml');break;case'png':Exports.download(await Exports.svgToPNG(await host.request('svg')),'world.png','image/png');break;}}catch(e){handleError(e);}};
-const redirect=new URL('./',location.href);redirect.search='';redirect.hash='';
-const store=new HashBinStore({clientId:document.querySelector('meta[name=hashbin-client-id]').content,redirectUri:redirect.href,storage,transactionStorage:session});
-const hashbin=new HashBinPanel({store,getSnapshot:snapshot,getFingerprint:async captured=>Program.fingerprint(captured||await snapshot()),getVersion:()=>revision,onLoad:(next,cid)=>loadProgram(next,{ask:false,cid,run:new URL(location.href).searchParams.get('run')!=='0'}),onSaved:(cid,fingerprint,url)=>{saved={cid,fingerprint};history.replaceState(null,'',url);}});
-el('share-hashbin').onclick=()=>{el('share-dialog').close();hashbin.openSave();};
-drafts.mount(el('more-panel'), async value=>{await loadProgram(value,{ask:false,run:false});history.replaceState(null,'',(await links()).long);});
-addEventListener('hashchange',async()=>{clearTimeout(runTimer);clearTimeout(snapshotTimer);try{await saveDraft();location.reload();}catch(error){handleError(error);}});
+async function openShare(){prepared=await snapshot();shell.drawer.dialog.close();share.open();}
+const share=createShareDialog({urlState,getSnapshot:()=>prepared,onSave:()=>hashbin.openSave()});
+el('share-open').onclick=()=>openShare().catch(handleError);
+const qr=createQrDialog({config,urlState,onLoad:async outcome=>{if(outcome.kind==='cid'){await hashbin.load(outcome.cid);return;}const url=new URL(outcome.href);history.pushState(null,'',location.pathname+url.search+url.hash);await openURL();},onSave:()=>{qrSave=true;qr.dialog.close();return hashbin.openSave();}});
+el('qr-open').onclick=async()=>{try{const p=await snapshot();shell.drawer.dialog.close();qr.open(saved?.fingerprint===revision?urlState.link(location.href,saved.cid):urlState.build(p).href);}catch(error){handleError(error);}};
+el('download-open').onclick=()=>{shell.drawer.dialog.close();el('download-dialog').showModal();};for(const button of document.querySelectorAll('[data-download]'))button.onclick=async()=>{try{switch(button.dataset.download){case'json':Exports.download(HashBinDocuments.serialize(await snapshot()),'livelier.json','application/json');break;case'js':Exports.download(editor.getValue(),'main.js','text/javascript');break;case'txt':Exports.download(consoleView.export(),'console.txt');break;case'svg':Exports.download(await host.request('svg'),'world.svg','image/svg+xml');break;case'png':Exports.download(await Exports.svgToPNG(await host.request('svg')),'world.png','image/png');break;}}catch(e){handleError(e);}};
+const store=new HashBinStore({legacyStorage:storage});
+hashbin=new HashBinPanel({store,urlState,getSnapshot:()=>prepared,getFingerprint:()=>revision,container:el('more-panel'),
+ onLoad:(next,cid)=>loadProgram(next,{cid,run:new URL(location.href).searchParams.get('run')!=='0'}),
+ onSaved:(cid,fingerprint,url)=>{urlState.cancel();saved={cid,fingerprint};history.replaceState(null,'',url);if(qrSave){qrSave=false;hashbin.dialog.close();qr.open(url);}}
+});
+const hashControls=document.createElement('div');hashControls.className='hashbin-controls';hashControls.append(hashbin.saveButton,el('more-panel').querySelector('label[for=hashbin-cid]'),hashbin.input,hashbin.loadButton,hashbin.status);el('more-panel').querySelector('.drawer-heading').after(hashControls);el('more-panel').querySelector('.input-row').remove();
+// Request a fresh world before each review; Publish itself remains synchronous in the kit's confirmation click.
+const review=hashbin.openSave.bind(hashbin);hashbin.openSave=async()=>{try{prepared=await snapshot();await review();}catch(error){handleError(error);}};
+hashbin.dialog.addEventListener('close',()=>{qrSave=false;});
+drafts.mount(el('more-panel'),async value=>{await loadProgram(value,{run:false});shell.drawer.dialog.close();});hashControls.append(el('resume-work'),el('draft-recovery-status'));
+let lastNavigation=location.href;const navigate=event=>{if(event.type==='hashchange'&&event.newURL!==location.href)return;if(location.href===lastNavigation)return;lastNavigation=location.href;void openURL();};addEventListener('hashchange',navigate);addEventListener('popstate',navigate);
 // Save the world before activating an offline update; the worker waits for this click.
-el('offline-action').addEventListener('click',async evt=>{if(el('offline-action').textContent==='Update and reload'){evt.stopImmediatePropagation();try{await saveDraft();const registration=await navigator.serviceWorker.getRegistration();registration?.waiting?.postMessage({type:'activate-update'});}catch(e){handleError(e);}}},true);
+el('offline-action').addEventListener('click',async evt=>{if(el('offline-action').textContent==='Update and reload'){evt.stopImmediatePropagation();try{const doc=await saveDraft();urlState.cancel();clearTimeout(urlTimer);history.replaceState(null,'',urlState.build(doc,{run:!paused}).href);const registration=await navigator.serviceWorker.getRegistration();if(registration?.waiting){navigator.serviceWorker.addEventListener('controllerchange',()=>location.reload(),{once:true});registration.waiting.postMessage({type:'activate-update'});}}catch(e){handleError(e);}}},true);
 addEventListener('offline-before-reload',()=>drafts.attempt(program,dirty));addEventListener('pagehide',()=>sessionSet('idle'));document.addEventListener('visibilitychange',markSession);
-try{
- const parsed=ShareLinks.parse(location.href,LZString.decompressFromEncodedURIComponent);let initialRun=!abnormal&&(parsed?.run??true);
- if(parsed?.kind==='publish'){const result=await store.published(location.hash);if(result?.snapshot)program=HashBinDocuments.normalize(result.snapshot);if(result?.error)el('hashbin-status').textContent=result.error;if(result?.cid)saved={cid:result.cid,fingerprint:await Program.fingerprint(program)};history.replaceState(null,'',saved?HashBinDocuments.link(location.href,saved.cid):redirect.href);}
- else if(parsed){let linked;if(parsed.kind==='source')linked=HashBinDocuments.normalize(parsed);if(parsed.kind==='example'){const example=Examples.find(e=>e.id===parsed.id);if(!example)throw Error('Sample not found. Open the sample gallery.');linked=structuredClone(example.document);}if(parsed.kind==='cid')linked=await store.load(parsed.cid);if(linked){program=linked;if(parsed.kind==='cid')saved={cid:parsed.cid,fingerprint:await Program.fingerprint(linked)};}}
- loading=true;editor.setValue(program.src,-1);el('autorun').checked=program.livelier.autorun;await start(initialRun);await saveDraft();if(saved)saved.fingerprint=await Program.fingerprint(program);if(abnormal)status('Livelier didn’t close normally, so this world opened paused.');
-}catch(error){handleError(error);if(!ready){await start(false).catch(handleError);}}
+async function openURL(){
+ navigationError=null;const own=++navigationRevision;urlState.cancel();clearTimeout(urlTimer);scheduler.cancel();clearTimeout(snapshotTimer);hashbin.cancelLoad();
+ try{
+  const parsed=urlState.parse(location.href);let next=structuredClone(Examples[0].document),initialRun=!abnormal&&parsed.run!==false,cid=null;
+  if(parsed.kind==='publish'){const result=await store.published(location.hash);if(own!==navigationRevision)return;if(result?.snapshot)next=HashBinDocuments.normalize(result.snapshot);if(result?.error)el('hashbin-status').textContent=result.error;cid=result?.cid??null;}
+  else if(parsed.kind==='source')next=parsed.doc;
+  else if(parsed.kind==='example'){const example=Examples.find(e=>e.id===parsed.id);if(!example)throw Error('Sample not found. Open the sample gallery.');next=structuredClone(example.document);}
+  else if(parsed.kind==='cid'){next=await store.load(parsed.cid);cid=parsed.cid;}
+  if(own!==navigationRevision)return;
+  // Resolving an explicit link never writes the stored work; only subsequent edits can do that.
+  await saveDraft();if(own!==navigationRevision)return;drafts.opened();dirty=false;revision++;loading=true;program=HashBinDocuments.normalize(next);editor.setValue(program.src,-1);el('autorun').checked=program.livelier.autorun;
+  await start(initialRun);if(own!==navigationRevision)return;
+  saved=cid?{cid,fingerprint:revision}:null;
+  if(cid)history.replaceState(null,'',urlState.link(location.href,cid));else if(['example','publish'].includes(parsed.kind))history.replaceState(null,'',urlState.build(program,{run:initialRun}).href);
+  if(abnormal)status('Livelier didn’t close normally, so this world opened paused.');
+ }catch(error){if(own!==navigationRevision)return;navigationError=error.message;status(error.message);if(!ready)await start(false).catch(handleError);}
+ finally{document.body.dataset.ready='true';}
+}
+store.retireLegacyTokens().catch(()=>{});await openURL();
 // Integration hooks for reproducible tests and gallery rendering.
 globalThis.LivelierApp={host,editor,snapshot,loadProgram,run,saveDraft,hashbin,store,get ready(){return ready;},get revision(){return revision;}};
 })();

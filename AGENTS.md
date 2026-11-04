@@ -20,12 +20,16 @@ Never silently replace a local draft from a link, sample, CID, or file. Request 
 
 ## Work and checks
 
-Run npm test and npm run check. For execution, interaction, persistence, security, or UI changes run the relevant Playwright browser suite, using BROWSER=chromium/firefox/webkit. Do not label an unrun browser as passing. CI is a three-engine matrix; deploy is independent and has no build step.
+Run npm test and npm run check. For execution, interaction, persistence, security, or UI changes run the relevant Playwright browser suite, using BROWSER=chromium/firefox/webkit. Do not label an unrun browser as passing. CI is a three-engine matrix; the shared Pages deploy is gated on it and has no build step.
 
 After updating docs, samples, or shipped assets run the relevant generators, ending with npm run offline. Keep catalog documents, examples JSON, preview SVGs, fingerprints, and Markdown/HTML guides synchronized. Tests verify SDK SRI hashes, CSP pin, offline coverage, and shell evaluation rules.
 
-Follow the plan’s direct-main workflow with commits and pushes when authorized by the task. Preserve lowercase curtcox/livelier and the HashBin return URL https://curtcox.github.io/livelier/. GitHub Pages must use GitHub Actions.
+Keep the Fragment Kit consumer migration on its own branch and PR. Commit and push when authorized by the task. Preserve lowercase curtcox/livelier and the HashBin return URL https://curtcox.github.io/livelier/. GitHub Pages must use GitHub Actions.
 
 ## URL identity and draft recovery
 
 Explicit program, source, example and CID URLs always load their document, independent of browser drafts. Never gate URL loading on a replacement confirmation. The bare homepage opens the default document. Preserve local drafts separately with LocalDrafts and offer Resume saved work. Opening or running a URL must not overwrite saved work; edits retain the previous draft for recovery. Keep stale-load guards and execution isolation.
+
+## Fragment Kit
+
+Shared contracts live in `vendor/fragment-kit-v0.3.2/docs/contracts.md`. Keep exact pinned runtime bytes immutable; workflows use the immutable `v2` reference. The production document adapter preserves the deterministic world and kernel version. The original kernel and execution boundary remain app-owned. Request fresh world snapshots before save/share/export; reject a stale response and keep Publish in the subsequent confirmation click. Keep `livelier:draft`, history, session markers and the existing app-prefixed Publish transaction namespace. Client ID stays empty until supplied. Keep the legacy writer until all consumers read v1. `npm run gallery:world` regenerates original SVGs; the shared renderer exports covers. Check both renderers, regenerate docs after Markdown and offline hashes after shipped changes, and run unit/static/contracts plus real-kernel browser tests in Chromium, Firefox and WebKit. Report only browsers actually run.

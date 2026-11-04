@@ -1,0 +1,109 @@
+{
+  "dependencies": {
+    "src/examples.js": "8fa5a3f55e7a94e4f2500dd1c3f6d0f118bd2a418583bf8c1c69b349460b8384",
+    "scripts/render-world-previews.mjs": "edfc9c8092273f9fc02d3a2ec4a21d2d4a454b6ce9f1c17805e8db2e4fed266d",
+    "gallery/previews/welcome.svg": "a57d3c23e9cc2ec4e7d08fef95abf066cd0285b3711091aad9d91224ba88d702",
+    "gallery/previews/hello-world.svg": "487556c5577e045f99f953182b18198dbd42db839fb19937614293e895bb9233",
+    "gallery/previews/counter.svg": "8473bdd8b84d26d1ebabbbb98c3003e007c6fa540b536154825a1d811bdc6edc",
+    "gallery/previews/sticky-notes.svg": "b22c28036b6b05b10dd49a491ab529ff4f5fb2251654dcd91df05a4e8e35f2fa",
+    "gallery/previews/direct-tour.svg": "bbf06b570ad74626c3d24dfa6a0058332b0fc3ea1bb7ed2eff6bd97b9f23c7a7",
+    "gallery/previews/bouncing-ball.svg": "46fbf7debc7de34197bb63f42389f1f6249070e51876623cfc7b6bea1c28d118",
+    "gallery/previews/analog-clock.svg": "7e997fe38f6e3ae45aed28a3ff634997f1db6cc5e0a164561e87d59a2a4ff095",
+    "gallery/previews/orbiting-planets.svg": "ec2765e6bb8d70034c220411071573ce9d5667ac27ed33f8260bebd02ceeb666",
+    "gallery/previews/pendulum.svg": "ce6fa45dcf9b17cda09cf8b6956b04c3aecc01defdae307df0833077a4674056",
+    "gallery/previews/rgb-mixer.svg": "cb4c206ff4fa864c0521e5d0e692dd2b087a9353096d8f1abd372b17e95b8843",
+    "gallery/previews/temperature.svg": "1167e1346bcdf0a3015953ccecc464a7bd4bfffb79c513308f684102a242f458",
+    "gallery/previews/polygon.svg": "039baad8d789e65230af12ecbeee18c00f0ea4344dfb2faa4205954e047574c4",
+    "gallery/previews/flower.svg": "09bcc37562dbeb8a4fc0209c4bb4c0fc0f323799e342f0b905ca72c407ea0271",
+    "gallery/previews/game-of-life.svg": "d00bc7c8820ed751440dbcf18354ed3f6318b2ade9df3e9ff007c6be88346328",
+    "gallery/previews/sorting.svg": "376bb17aebbee057e9020c2b97d41b850a4eeafda0c12f983dec61a8357a7242",
+    "gallery/previews/turtle.svg": "96ad928acbf7fcf4db9a9ca4a4ba51bb2214e5b616dfcb6c3575088a75badbb8",
+    "gallery/previews/calculator.svg": "f4d6803e88f0866d5243c2a3099b78632ced94de491245f8b4c3e87ed8d04bd1",
+    "gallery/previews/todo-list.svg": "f7f4d879d40de739b0ff2bc700f608b3f57b6d13875c58e9f2c2c7d48a03af46",
+    "gallery/previews/tiny-piano.svg": "08d8f198644cef17291db70bd4d3943ea5ed15522f715c7c4c24a5b4aa05c8e8",
+    "gallery/previews/change-kernel.svg": "b82cb537a7f268fa7de455d83d1601e33b858a8f239cbc89c91c0af3a122bb1f"
+  },
+  "renderer": "b1ed9f1fddb744fd09c3ef687ce329ba085392a4a0b949f67ace30b8308e7880",
+  "examples": {
+    "welcome": {
+      "document": "5b8d24900fd076f985db369270ee8c6e22f348dbdca5d9f1faa20d90993f89ee",
+      "cover": "d931799e1b5cd7ce4b28943059ea9ea7d0c23ceff1484acb3a82b4188e6d6ea3"
+    },
+    "hello-world": {
+      "document": "e9ad22dfba9feb7f2ce1e0a549764faf33987f148993dcdb852eb8c3f7f17a0f",
+      "cover": "47c1de3d46f5f19839a9c82bf65e3c10ae0e658e0828f0ebed9ff7dc21868fec"
+    },
+    "counter": {
+      "document": "fe8950c328958284f75ccaeb9ceef665a34a6f432f677231f23101a4b61e2aaa",
+      "cover": "bc35528a5d04ba8bee7f40ed5bc1b0d83efe003166fd52a294da539b89464a77"
+    },
+    "sticky-notes": {
+      "document": "de1a1d431c33cba0cd454fd4781968c6b98facf90a61ddc2e376a10744ccbd28",
+      "cover": "8b0eb9dcb22e835b873a0b8f1b7dcc6eb279955e067ec492019879088f9d33db"
+    },
+    "direct-tour": {
+      "document": "e7c86e3b94f96f8c500c8465583e77eaded7b70f1d601e242f5203ce5008bfbf",
+      "cover": "5111df63c00dcc7b491975e2af58dfaa897fcc0ccae94fd9002a4f6489d31e5f"
+    },
+    "bouncing-ball": {
+      "document": "41dd2594a9ad3d507b10c48872cf48160ca3ab1479b32c8a3df48c9163c1504e",
+      "cover": "419d9958f4b12407a09329d084649cb55d2e67c94d63adf3020add7010be5a3b"
+    },
+    "analog-clock": {
+      "document": "3bff9f0fda960414504f399820a6423a55d5e80ef80c38e9ad21ac2d0063e490",
+      "cover": "12ca716a4898692d73c992839e7ece8a94e76e8fd7531cec35c483156b857bb7"
+    },
+    "orbiting-planets": {
+      "document": "5b9af796a4e43fe48405f0e7a2b265a97445b0b171d9f9e95d4fe285090d3aed",
+      "cover": "32c2d74cb15e9aa53fcdef1627c5d882ce46845775d9b9860ae232828b982083"
+    },
+    "pendulum": {
+      "document": "6f752e43e1166edb8976c87f56275529b780ec27f04ffe5476ad424ef46162bb",
+      "cover": "f7b2601c6206bb9eafb9642dc1b61e493273f931dca0f608bfd97afac263b2f5"
+    },
+    "rgb-mixer": {
+      "document": "5e025ea8e99948bf27f499d4464798a97722ec2c2aa989834917642d3b920b85",
+      "cover": "b0ef594ce6f0886f7b698eb5266b74b6cc675b02e0a3a7e10c306c2ee44b8311"
+    },
+    "temperature": {
+      "document": "9c5a8254bb86c5c0b0b45163d30711f01479eee0a238eb679e2f4e63bb2637c3",
+      "cover": "d705f22c336557831c59e541ccdcc4152b2fa796c65d33667e3e679b3fb20648"
+    },
+    "polygon": {
+      "document": "dbd3ded8a2ee6f8761b0633471970e60e223858ae56ada2dfc32dbffef15075d",
+      "cover": "5b34485b24f604250f23015227a233d144e3ba988cdff3d8d016a051cdfb1eea"
+    },
+    "flower": {
+      "document": "47d126d88311138d9a67e5c5e5c2213a6a54d61a04d0ecdc3acfd36fda73e1db",
+      "cover": "daa5d08d5dfcfac9df239aad3137c41219c3c2bdcb0ceeed4e564c297313b1a3"
+    },
+    "game-of-life": {
+      "document": "b8efa42408d463f347ac9555647c09faca6bd12fcf6865f2577f484307a83885",
+      "cover": "deb5c5a188f0eb7fab427495dd45458bb9c39b098373b9eb64b6cd965613ab97"
+    },
+    "sorting": {
+      "document": "1284469f89a9ca4874963333543bfe1fe552dabca31b3bb60b565d2126e73df4",
+      "cover": "1b37e9bc7a51666265915c56cd4db6c2875bd623d09523861f776f154ed21460"
+    },
+    "turtle": {
+      "document": "0752298b6d5ee91eb1d95c2d766962689518b004718671c885f7b16e8195b6b0",
+      "cover": "1569398ff875df53343bd3bac12a1b04ccea9e665e173df1366af6c59feaeb07"
+    },
+    "calculator": {
+      "document": "4d7868e50ffe41b899925df341ef4c377a73cff04a51ee52a4d4a8385c24f874",
+      "cover": "b00ced0ce45140da5379af710274101ddea00df9550163f8aa0ca99bd609d29e"
+    },
+    "todo-list": {
+      "document": "547bea4eed01c491288ecbbed06418ceabaabda69fbad535a5cf61bbc996fb8a",
+      "cover": "720bad30507177c0eea9830737d0b820f2e276bc9b07a35b488c5c809e0cbfb8"
+    },
+    "tiny-piano": {
+      "document": "d8c8ca598dc84bf75b10a81f507412ec7033b3b7a49988f90389bb42fc6d0863",
+      "cover": "2a5173ebbc10228a9c03c65e33d4de8c17d077966fe8ffe26f5ef1f777bd5b96"
+    },
+    "change-kernel": {
+      "document": "124107ab0b9e4460d70b6538a18680c50a2b093e2fe15cb03824de57d4d88a9e",
+      "cover": "a878dfd69821950ebe900cbeb6ea662745fbcd541c671ac711887d267cec1c1d"
+    }
+  }
+}

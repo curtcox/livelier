@@ -1,0 +1,17 @@
+import {test} from '@playwright/test';
+import {createRequire} from 'node:module';
+const manifest=createRequire(import.meta.url)('./offline-assets.js');
+test.setTimeout(120000);
+
+
+export default {
+  ready:'body[data-ready="true"]',editor:'#editor',status:'#status',draftKey:'livelier:draft',more:'#more-toggle',
+  share:'#share-open',shareLink:'#share-dialog[open] #share-link',qr:'#qr-open',tabs:['Code','World'],example:'welcome',cachePrefix:manifest.version,offlineAsset:'src/app.css',
+  kitURL:'./vendor/fragment-kit-v0.3.2/src/index.js',
+  isWrittenURL:href=>{const url=new URL(href);return url.searchParams.has('doc')||url.searchParams.has('compressed');},
+  getSource:page=>page.evaluate(()=>LivelierApp.editor.getValue()),getDocument:page=>page.evaluate(()=>LivelierApp.snapshot()),
+  edit:(page,src)=>page.evaluate(async src=>{document.getElementById('autorun').checked=false;LivelierApp.editor.setValue(src,-1);await LivelierApp.saveDraft();},src),
+  openMore:async page=>{if(!await page.locator('#fk-more-drawer').isVisible())await page.locator('#more-toggle').click();},
+  configureHashBin:async(context,clientId)=>context.route('**/',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace('name="hashbin-client-id" content=""',`name="hashbin-client-id" content="${clientId}"`)});}),
+  build:(page,doc,canonical=false)=>page.evaluate(async({doc,canonical})=>{const{urlState,config}=await import('./src/fragment-config.mjs');return urlState.build(doc,canonical?{url:config.canonicalOrigin}:{}).href;},{doc,canonical})
+};
