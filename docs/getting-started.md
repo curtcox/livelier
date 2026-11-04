@@ -30,7 +30,7 @@ Open Workspace to evaluate smaller ideas. Do it runs the selected text (or all t
 
 The editor saves a local draft on this device. Share produces a URL containing the program. Download keeps a whole program as livelier.json. QR code transfers the link to another device. Large worlds need a short HashBin CID link; saving to HashBin requires the project’s public client registration, while loading works immediately.
 
-A linked world asks before replacing an existing draft. To open a linked program without executing it, use Don’t run on open in Share. Read the [program model](program-model.md), [tools guide](tools.md), and [sharing guide](sharing.md) next.
+A linked world opens directly and keeps previous drafts under More → Resume saved work. To open a linked program without executing it, clear Run on open in Share. Read the [program model](program-model.md), [tools guide](tools.md), and [sharing guide](sharing.md) next.
 
 ## Touch
 

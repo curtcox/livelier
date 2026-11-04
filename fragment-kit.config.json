@@ -1,0 +1,12 @@
+{
+  "slug": "livelier",
+  "name": "Livelier",
+  "storagePrefix": "livelier",
+  "canonicalOrigin": "https://livelier.hashbin.page/",
+  "recoveryOrigin": "https://curtcox.github.io/livelier/",
+  "repo": "curtcox/livelier",
+  "docs": "https://curtcox.github.io/livelier/docs/getting-started.html",
+  "gallery": "https://curtcox.github.io/livelier/gallery.html",
+  "documentType": "livelier",
+  "worldBootstrapHash": "sha256-U8hPb/vHcxTUItB7j0OioRPOUottOMurvrZ0l7aetcA="
+}
