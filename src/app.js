@@ -1,4 +1,4 @@
-import {LocalDrafts,RenderScheduler,HashBinPanel,createShell,mountMobileTabs,createShareDialog,createQrDialog} from '../vendor/fragment-kit-v0.3.2/src/index.js';
+import {LocalDrafts,RenderScheduler,HashBinPanel,createShell,mountMobileTabs,createShareDialog,createQrDialog} from '../vendor/fragment-kit-v0.3.3/src/index.js';
 import {config,type,urlState,HashBinDocuments,HashBinStore,LZString} from './fragment-config.mjs';
 import Program from './program.js';
 Object.assign(globalThis,{HashBinDocuments,LZString});

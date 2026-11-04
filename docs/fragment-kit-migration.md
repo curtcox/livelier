@@ -1,6 +1,6 @@
 # Shared tools migration
 
-Livelier pins the published Fragment Kit v0.3.2. `fragment-kit.config.json` holds the app configuration and `src/fragment-config.mjs` owns the production world schema. New links keep the legacy writer until the fleet has v1 readers. Reusable workflows use immutable v2 separately from the exact runtime pin.
+Livelier pins the published Fragment Kit v0.3.3. `fragment-kit.config.json` holds the app configuration and `src/fragment-config.mjs` owns the production world schema. New links keep the legacy writer until the fleet has v1 readers. Reusable workflows use immutable v2 separately from the exact runtime pin.
 
 The original kernel, compiler, serializer, undo model, WorldHost and world bootstrap remain unchanged. The iframe still has exactly `sandbox="allow-scripts"`. The consumer checker pins the original bootstrap hash and rejects evaluation in the shell; the shared checker verifies the kit and its vendor integrity. The SDK belongs only to Publish, never to this kernel's execution boundary.
 
