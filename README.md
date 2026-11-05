@@ -83,3 +83,5 @@ The original kernel and application are MIT ([LICENSE](LICENSE)). The editor/sha
 Program URLs always open the linked document, regardless of browser history or local drafts. The homepage opens the default example. Use **Resume saved work** in the editor controls to recover local drafts. Viewing or running a link keeps saved work; editing it retains the previous draft for recovery.
 
 Shared application tools use the exact Fragment Kit v0.3.3 pin and immutable v2 workflows. See the [migration guide](docs/fragment-kit-migration.html). The original execution kernel and iframe isolation remain app-owned.
+
+Canonical registration (2026-11-05): `app_f044e0da-520a-4196-81f5-041c78f43c02`, with the sole return URL `https://livelier.hashbin.page/`. The GitHub Pages recovery copy preserves old links and drafts; Publish approval is available from the canonical site.

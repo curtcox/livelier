@@ -16,7 +16,7 @@ Read todo/master_plan.md for product scope and decisions. Use plain JavaScript, 
 
 Keep model/compiler/serializer/undo files independent of DOM. World snapshots are deterministic JSON; preserve IDs and property ordering. Never include tool windows or unkept scripted morphs. Main reruns remove their morphs, steps, managed timers, and bindings. Saved world edits survive reruns. Keep in world flattens custom class methods. Unknown classes/properties warn and degrade. Do not change the envelope without versioning/migration.
 
-Never silently replace a local draft from a link, sample, CID, or file. Request a snapshot before saving, sharing, exporting a document, or reloading for offline updates. Preserve source and world across approved/cancelled HashBin redirects. Store no HashBin credentials on this origin. Public HashBin client ID remains empty until supplied; never invent one.
+Never silently replace a local draft from a link, sample, CID, or file. Request a snapshot before saving, sharing, exporting a document, or reloading for offline updates. Preserve source and world across approved/cancelled HashBin redirects. Store no HashBin credentials on this origin. Public HashBin client ID is app_f044e0da-520a-4196-81f5-041c78f43c02; its only return URL is https://livelier.hashbin.page/.
 
 ## Work and checks
 
@@ -24,7 +24,7 @@ Run npm test and npm run check. For execution, interaction, persistence, securit
 
 After updating docs, samples, or shipped assets run the relevant generators, ending with npm run offline. Keep catalog documents, examples JSON, preview SVGs, fingerprints, and Markdown/HTML guides synchronized. Tests verify SDK SRI hashes, CSP pin, offline coverage, and shell evaluation rules.
 
-Keep the Fragment Kit consumer migration on its own branch and PR. Commit and push when authorized by the task. Preserve lowercase curtcox/livelier and the HashBin return URL https://curtcox.github.io/livelier/. GitHub Pages must use GitHub Actions.
+Keep the Fragment Kit consumer migration on its own branch and PR. Commit and push when authorized by the task. Preserve lowercase curtcox/livelier and the canonical HashBin return URL https://livelier.hashbin.page/. GitHub Pages must use GitHub Actions.
 
 ## URL identity and draft recovery
 
@@ -32,4 +32,4 @@ Explicit program, source, example and CID URLs always load their document, indep
 
 ## Fragment Kit
 
-Shared contracts live in `vendor/fragment-kit-v0.3.3/docs/contracts.md`. Keep exact pinned runtime bytes immutable; workflows use the immutable `v2` reference. The production document adapter preserves the deterministic world and kernel version. The original kernel and execution boundary remain app-owned. Request fresh world snapshots before save/share/export; reject a stale response and keep Publish in the subsequent confirmation click. Keep `livelier:draft`, history, session markers and the existing app-prefixed Publish transaction namespace. Client ID stays empty until supplied. Keep the legacy writer until all consumers read v1. `npm run gallery:world` regenerates original SVGs; the shared renderer exports covers. Check both renderers, regenerate docs after Markdown and offline hashes after shipped changes, and run unit/static/contracts plus real-kernel browser tests in Chromium, Firefox and WebKit. Report only browsers actually run.
+Shared contracts live in `vendor/fragment-kit-v0.3.3/docs/contracts.md`. Keep exact pinned runtime bytes immutable; workflows use the immutable `v2` reference. The production document adapter preserves the deterministic world and kernel version. The original kernel and execution boundary remain app-owned. Request fresh world snapshots before save/share/export; reject a stale response and keep Publish in the subsequent confirmation click. Keep `livelier:draft`, history, session markers and the existing app-prefixed Publish transaction namespace. Keep the registered client ID in index.html. Keep the legacy writer until all consumers read v1. `npm run gallery:world` regenerates original SVGs; the shared renderer exports covers. Check both renderers, regenerate docs after Markdown and offline hashes after shipped changes, and run unit/static/contracts plus real-kernel browser tests in Chromium, Firefox and WebKit. Report only browsers actually run.

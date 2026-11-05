@@ -12,6 +12,6 @@ export default {
   getSource:page=>page.evaluate(()=>LivelierApp.editor.getValue()),getDocument:page=>page.evaluate(()=>LivelierApp.snapshot()),
   edit:(page,src)=>page.evaluate(async src=>{document.getElementById('autorun').checked=false;LivelierApp.editor.setValue(src,-1);await LivelierApp.saveDraft();},src),
   openMore:async page=>{if(!await page.locator('#fk-more-drawer').isVisible())await page.locator('#more-toggle').click();},
-  configureHashBin:async(context,clientId)=>context.route('**/',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace('name="hashbin-client-id" content=""',`name="hashbin-client-id" content="${clientId}"`)});}),
+  configureHashBin:async(context,clientId)=>context.route('**/',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace(/name="hashbin-client-id" content="[^"]*"/,`name="hashbin-client-id" content="${clientId}"`)});}),
   build:(page,doc,canonical=false)=>page.evaluate(async({doc,canonical})=>{const{urlState,config}=await import('./src/fragment-config.mjs');return urlState.build(doc,canonical?{url:config.canonicalOrigin}:{}).href;},{doc,canonical})
 };
