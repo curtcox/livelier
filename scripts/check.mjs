@@ -7,6 +7,6 @@ const html=await fs.readFile(path.join(root,'index.html'),'utf8');for(const matc
 for(const name of ['src/app.js','src/world-host.js','src/program.js']){const src=await fs.readFile(path.join(root,name),'utf8');if(/\beval\s*\(|new\s+Function\s*\(/.test(src))throw Error('Shell code must never evaluate strings: '+name);}
 for(const file of require('../src/kernel-files.js'))await fs.access(path.join(root,file));console.log(count+' JavaScript files checked; shell execution contract holds.');
 
-for(const script of [['vendor/fragment-kit-v0.3.3/tools/check.mjs','--config','fragment-kit.config.json'],['scripts/render-world-previews.mjs','--check']]){const result=spawnSync(process.execPath,script,{cwd:root,stdio:'inherit'});if(result.status)process.exit(result.status);}
+for(const script of [['vendor/fragment-kit-v0.3.5/tools/check.mjs','--config','fragment-kit.config.json'],['scripts/render-world-previews.mjs','--check']]){const result=spawnSync(process.execPath,script,{cwd:root,stdio:'inherit'});if(result.status)process.exit(result.status);}
 
 const {createHash}=await import('node:crypto'),bootstrap=require('../src/world-bootstrap.js'),config=JSON.parse(await fs.readFile(path.join(root,'fragment-kit.config.json'),'utf8')),expected='sha256-'+createHash('sha256').update(bootstrap).digest('base64');if(config.worldBootstrapHash!==expected||!html.includes(expected))throw Error('Original world bootstrap CSP pin mismatch.');

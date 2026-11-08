@@ -1,4 +1,4 @@
-import {LocalDrafts,RenderScheduler,HashBinPanel,createShell,mountMobileTabs,createShareDialog,createQrDialog} from '../vendor/fragment-kit-v0.3.3/src/index.js';
+import {LocalDrafts,RenderScheduler,HashBinPanel,compactShell,createShell,mountMobileTabs,createShareDialog,createQrDialog} from '../vendor/fragment-kit-v0.3.5/src/index.js';
 import {config,type,urlState,HashBinDocuments,HashBinStore,LZString} from './fragment-config.mjs';
 import Program from './program.js';
 Object.assign(globalThis,{HashBinDocuments,LZString});
@@ -6,7 +6,8 @@ Object.assign(globalThis,{HashBinDocuments,LZString});
 (async () => {
 const el=id=>document.getElementById(id),storage=Program.storage(),session=Program.storage('sessionStorage');
 const safeGet=key=>{try{return storage?.getItem(key);}catch(_){return null;}},safeSet=(key,value)=>{try{storage?.setItem(key,value);}catch(_){}};
-const oldHeader=document.querySelector('header'),brand=oldHeader.querySelector('.brand'),shell=createShell({config});shell.header.querySelector('.fk-brand').replaceChildren(...brand.childNodes);shell.header.querySelector('.fk-brand').href=new URL('./',location.href).href;oldHeader.remove();shell.toolbar.remove();shell.status.remove();shell.header.querySelector('.fk-more').id='more-toggle';document.querySelector('.toolbar>#more-toggle').remove();
+const oldHeader=document.querySelector('header'),brand=oldHeader.querySelector('.brand'),shell=createShell({config});shell.header.querySelector('.fk-brand').replaceChildren(...brand.childNodes);shell.header.querySelector('.fk-brand').href=new URL('./',location.href).href;oldHeader.remove();shell.toolbar.remove();shell.status.remove();
+compactShell({header:shell.header,toolbar:document.querySelector(".toolbar"),status:document.querySelector("body > footer")});shell.header.querySelector('.fk-more').id='more-toggle';document.querySelector('.toolbar>#more-toggle').remove();
 shell.drawer.body.append(el('more-panel'));el('more-panel').querySelector('a[href="gallery.html"]')?.remove();el('more-panel').hidden=false;el('more-close').remove();for(const id of ['hashbin-save','hashbin-cid','hashbin-load','hashbin-status','hashbin-dialog','share-dialog','qr-dialog'])el(id).remove();
 const errorCount=document.createElement('span');errorCount.id='error-count';document.querySelector('.statusbar').append(errorCount);document.querySelector('.mobile-tabs').remove();
 const drafts=new LocalDrafts({storage,key:'livelier:draft',serialize:value=>HashBinDocuments.serialize(value),parse:value=>HashBinDocuments.parse(value)});
@@ -34,9 +35,9 @@ function changed(){dirty=true;revision++;navigationRevision++;hashbin?.cancelLoa
 async function snapshot(){const version=revision,source=editor.getValue(),autorun=el('autorun').checked,world=ready?await host.request('snapshot'):program.livelier.world;if(version!==revision)throw Error('The world changed while taking its snapshot. Try again.');program={src:source,livelier:{kernel:1,autorun,world}};return structuredClone(program);}
 async function saveDraft(){const p=await snapshot();if(drafts.attempt(p,dirty)){dirty=false;}return p;}
 const media=matchMedia('(max-width:767px)'),codePane=document.querySelector('.editor-pane'),worldPane=document.querySelector('.world-pane'),consolePane=document.querySelector('.console-pane');
-const moveConsole=()=>{(media.matches?el('layout'):codePane).append(consolePane);editor.setFontSize(media.matches?16:14);};moveConsole();media.addEventListener('change',moveConsole);
-const tabNames=['code','world','console'];const tabs=mountMobileTabs({container:document.querySelector('.toolbar'),panels:[{label:'Code',panel:codePane},{label:'World',panel:worldPane},{label:'Console',panel:consolePane}],onChange:index=>{document.body.dataset.tab=tabNames[index];editor.resize();}});
-function setTab(tab){tabs.select(tabNames.indexOf(tab));}setTab('world');
+let activePanel=-1;const moveConsole=()=>{(media.matches||activePanel!==-1?el('layout'):codePane).append(consolePane);editor.setFontSize(media.matches?16:14);};moveConsole();media.addEventListener('change',moveConsole);
+const tabNames=['code','world','console'];const tabs=mountMobileTabs({desktop:true,container:document.querySelector('.toolbar'),panels:[{label:'Code',panel:codePane},{label:'World',panel:worldPane},{label:'Console',panel:consolePane}],onChange:index=>{activePanel=index;moveConsole();document.body.classList.remove('editor-hidden','hide-editor');el('hide-editor').textContent=index===-1||index===0?'Hide editor':'Show editor';el('hide-editor').setAttribute('aria-pressed',String(index!==-1&&index!==0));document.body.dataset.tab=index===-1?'split':tabNames[index];editor.resize();}});
+function setTab(tab){tabs.select(tabNames.indexOf(tab));}if(media.matches)setTab('world');
 const scheduler=new RenderScheduler({detect:()=>{},render:()=>run().catch(handleError),renderDelay:750});
 async function start(run){loading=true;ready=false;paused=!run;el('pause').textContent=paused?'Resume':'❚❚ Pause';status('Loading kernel…');clearErrors();try{await host.start(program,{run});ready=true;status(errors?el('status').textContent:run?'Running':'Paused');}finally{loading=false;markSession();}}
 async function loadProgram(next,{run=true,cid=null}={}){
@@ -58,7 +59,7 @@ el('halo-mode').onchange=()=>host.request('halo-mode',{value:el('halo-mode').che
 for(const [id,name]of [['parts-open','parts'],['workspace-open','workspace'],['world-menu-open','menu'],['inspector-open','inspector']])el(id).onclick=()=>host.request('tool',{name}).catch(handleError);
 for(const type of ['undo','redo'])el(type).onclick=()=>host.request(type).catch(handleError);
 for(const button of document.querySelectorAll('[data-trigger]'))button.onclick=()=>el(button.dataset.trigger).click();
-el('hide-editor').onclick=()=>{const hidden=document.body.classList.toggle('hide-editor');el('hide-editor').textContent=hidden?'Show editor':'Hide editor';el('hide-editor').setAttribute('aria-pressed',String(hidden));editor.resize();};
+el('hide-editor').onclick=()=>tabs.select(tabs.getView()==='split'||tabs.getView()===0?1:'split');
 el('console-clear').onclick=()=>{consoleView.clear();clearErrors();};el('console-toggle').onclick=()=>{const closed=document.querySelector('.console-pane').classList.toggle('collapsed');el('console-toggle').setAttribute('aria-expanded',String(!closed));editor.resize();};
 const splitter=el('splitter');function split(value){value=Math.max(20,Math.min(70,value));document.documentElement.style.setProperty('--code-width',value+'%');splitter.setAttribute('aria-valuenow',String(Math.round(value)));editor.resize();}
 splitter.onpointerdown=evt=>{evt.preventDefault();splitter.setPointerCapture(evt.pointerId);const overlay=document.createElement('div');Object.assign(overlay.style,{position:'fixed',inset:0,zIndex:99,cursor:'col-resize'});document.body.append(overlay);const move=e=>split(e.clientX/innerWidth*100);document.addEventListener('pointermove',move);document.addEventListener('pointerup',()=>{document.removeEventListener('pointermove',move);overlay.remove();},{once:true});};splitter.onkeydown=evt=>{if(['ArrowLeft','ArrowRight'].includes(evt.key)){evt.preventDefault();split(Number(splitter.getAttribute('aria-valuenow'))+(evt.key==='ArrowRight'?2:-2));}};
