@@ -15,3 +15,7 @@
 @media(prefers-color-scheme:dark){:root{--fk-accent:#9bd6b7;--fk-surface:#1d2c23;--fk-panel:#263a2d;--fk-text:#e2eddf;--fk-border:#526f58;--fk-muted:#b5c9b4}body,.toolbar,.pane-heading,.editor-pane,.world-pane,.console-pane,.statusbar,button,input,select,textarea,dialog{background:var(--fk-panel);color:var(--fk-text)}}
 
 .hashbin-controls{display:flex;flex-direction:column;gap:8px}.hashbin-controls input{width:100%;min-width:0}.hashbin-controls>label{margin-top:8px}.draft-recovery button{min-height:44px}
+
+.layout[data-fk-view="single"]>.fk-view-panel:not([hidden]){display:flex!important;width:100%!important;flex:1;min-width:0}.fk-compact>.fk-toolbar .fk-tabs{display:flex;flex:none}
+
+.layout[data-fk-view="split"]>.fk-view-panel{display:flex!important}
