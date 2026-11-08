@@ -86,8 +86,9 @@ Shared application tools use the exact Fragment Kit v0.3.3 pin and immutable v2 
 
 Canonical registration (2026-11-05): `app_f044e0da-520a-4196-81f5-041c78f43c02`, with the sole return URL `https://livelier.hashbin.page/`. The GitHub Pages recovery copy preserves old links and drafts; Publish approval is available from the canonical site.
 
-## Prepared interface update
+## Compact interface
 
-This branch prepares Fragment Kit v0.3.5 for compact controls, readable dialogs,
-and single-pane or split workspace views. On phones, status details are in More.
-Shared release publication and site deployment are still pending.
+This app uses released Fragment Kit v0.3.5 for compact controls, readable dialogs,
+and individual-pane or split workspace views. On phones, primary feedback stays
+visible while status details are available in More.
+Current deployment evidence is recorded in the [shared rollout status](https://github.com/curtcox/Tools-for-pages-with-state-in-URL-fragments/blob/main/todo/rollout-status.md).
