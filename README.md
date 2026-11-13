@@ -76,7 +76,7 @@ Scripts save source, not JavaScript closures. Use this, $('name'), and the [seri
 
 ## Credits and licenses
 
-The original kernel and application are MIT ([LICENSE](LICENSE)). The editor/sharing lineage comes through [PythonOnline](https://github.com/curtcox/PythonOnline) and [GraphvizOnline](https://github.com/dreampuf/GraphvizOnline); retain [LICENSE-graphvizonline](LICENSE-graphvizonline). Ace 1.4.1 retains its BSD notice in ace/LICENSE. Acorn 8.19.0 and lz-string retain MIT notices in vendor/. The QR encoder is adapted from Project Nayuki with its MIT notice in vendor/fragment-kit-v0.3.5/src/qr/encode.js. HashBin SDK v0.4.0 is vendored unmodified inside Fragment Kit; tests pin its release SRI hash. The icon is original.
+The original kernel and application are MIT ([LICENSE](LICENSE)). The editor/sharing lineage comes through [PythonOnline](https://github.com/curtcox/PythonOnline) and [GraphvizOnline](https://github.com/dreampuf/GraphvizOnline); retain [LICENSE-graphvizonline](LICENSE-graphvizonline). Ace 1.4.1 retains its BSD notice in ace/LICENSE. Acorn 8.19.0 and lz-string retain MIT notices in vendor/. The QR encoder is adapted from Project Nayuki with its MIT notice in vendor/fragment-kit-v0.4.3/src/qr/encode.js. HashBin SDK v0.4.0 is vendored unmodified inside Fragment Kit; tests pin its release SRI hash. The icon is original.
 
 ### URLs and saved work
 
@@ -92,3 +92,5 @@ This app uses released Fragment Kit v0.3.5 for compact controls, readable dialog
 and individual-pane or split workspace views. On phones, primary feedback stays
 visible while status details are available in More.
 Current deployment evidence is recorded in the [shared rollout status](https://github.com/curtcox/Tools-for-pages-with-state-in-URL-fragments/blob/main/todo/rollout-status.md).
+
+Optional AI: Ask/review/undo, gallery suggestions and model comparison use the published Fragment Kit 0.4.3 entry point. See [AI guidance](docs/ai.md). Budgets start at zero; accepted source waits for explicit Run, Render or Check. The bundled synthetic [suite](ai-suite.json) and [75-result report](ai-comparison.json) measure source assertions and document invariants, not runtime quality or a model winner.

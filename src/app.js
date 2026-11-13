@@ -1,4 +1,6 @@
-import {LocalDrafts,RenderScheduler,HashBinPanel,compactShell,createShell,mountMobileTabs,createShareDialog,createQrDialog} from '../vendor/fragment-kit-v0.3.5/src/index.js';
+import {mountClientAi,aiCallback} from './ai-client.js';
+if(aiCallback()) await new Promise(()=>{});
+import {LocalDrafts,RenderScheduler,HashBinPanel,compactShell,createShell,mountMobileTabs,createShareDialog,createQrDialog} from '../vendor/fragment-kit-v0.4.3/src/index.js';
 import {config,type,urlState,HashBinDocuments,HashBinStore,LZString} from './fragment-config.mjs';
 import Program from './program.js';
 Object.assign(globalThis,{HashBinDocuments,LZString});
@@ -11,6 +13,7 @@ compactShell({header:shell.header,toolbar:document.querySelector(".toolbar"),sta
 shell.drawer.body.append(el('more-panel'));el('more-panel').querySelector('a[href="gallery.html"]')?.remove();el('more-panel').hidden=false;el('more-close').remove();for(const id of ['hashbin-save','hashbin-cid','hashbin-load','hashbin-status','hashbin-dialog','share-dialog','qr-dialog'])el(id).remove();
 const errorCount=document.createElement('span');errorCount.id='error-count';document.querySelector('.statusbar').append(errorCount);document.querySelector('.mobile-tabs').remove();
 const drafts=new LocalDrafts({storage,key:'livelier:draft',serialize:value=>HashBinDocuments.serialize(value),parse:value=>HashBinDocuments.parse(value)});
+let aiHold=false,aiPrepared=null,aiVersion=-1;
 let dirty=false,navigationError=null,hashbin=null,prepared=null,qrSave=false;
 let program=structuredClone(Examples[0].document),loading=false,ready=false,paused=true,saved=null,snapshotTimer,urlTimer,revision=0,navigationRevision=0;
 const sessionGet=()=>{try{return session?.getItem('livelier:session');}catch(_){return null;}},sessionSet=value=>{try{session?.setItem('livelier:session',value);}catch(_){}};
@@ -41,15 +44,16 @@ function setTab(tab){tabs.select(tabNames.indexOf(tab));}if(media.matches)setTab
 const scheduler=new RenderScheduler({detect:()=>{},render:()=>run().catch(handleError),renderDelay:750});
 async function start(run){loading=true;ready=false;paused=!run;el('pause').textContent=paused?'Resume':'❚❚ Pause';status('Loading kernel…');clearErrors();try{await host.start(program,{run});ready=true;status(errors?el('status').textContent:run?'Running':'Paused');}finally{loading=false;markSession();}}
 async function loadProgram(next,{run=true,cid=null}={}){
+ aiUI?.cancel();aiHold=false;
  navigationError=null;urlState.cancel();clearTimeout(urlTimer);scheduler.cancel();clearTimeout(snapshotTimer);await saveDraft();
  const own=++navigationRevision;drafts.opened();dirty=false;loading=true;hashbin?.cancelLoad();revision++;program=HashBinDocuments.normalize(next);editor.setValue(program.src,-1);el('autorun').checked=program.livelier.autorun;
  await start(run);if(own!==navigationRevision)return false;await saveDraft();
  if(cid){const fingerprint=revision;saved={cid,fingerprint};history.replaceState(null,'',urlState.link(location.href,cid));}
  else history.replaceState(null,'',urlState.build(program,{run}).href);return true;
 }
-async function run(){navigationError=null;if(!ready)return;scheduler.cancel();clearErrors();await host.request('run',{src:editor.getValue()});await saveDraft();}
+async function run(){aiHold=false;navigationError=null;if(!ready)return;scheduler.cancel();clearErrors();await host.request('run',{src:editor.getValue()});await saveDraft();}
 el('autorun').checked=program.livelier.autorun;
-editor.session.on('change',()=>{if(loading)return;program.src=editor.getValue();changed();scheduler.cancel();if(el('autorun').checked)scheduler.schedule({detect:false});clearTimeout(snapshotTimer);snapshotTimer=setTimeout(()=>saveDraft().catch(handleError),1000);});
+editor.session.on('change',()=>{if(loading)return;program.src=editor.getValue();changed();scheduler.cancel();if(!aiHold&&el('autorun').checked)scheduler.schedule({detect:false});clearTimeout(snapshotTimer);snapshotTimer=setTimeout(()=>saveDraft().catch(handleError),1000);});
 editor.commands.addCommand({name:'run',bindKey:{win:'Ctrl-Enter',mac:'Command-Enter'},exec:()=>run().catch(handleError)});
 el('run').onclick=()=>run().catch(handleError);el('pause').onclick=()=>{scheduler.cancel();host.request(paused?'resume':'pause').catch(handleError);};
 el('autorun').onchange=()=>{program.livelier.autorun=el('autorun').checked;scheduler.cancel();changed();saveDraft().catch(handleError);};
@@ -86,6 +90,7 @@ let lastNavigation=location.href;const navigate=event=>{if(event.type==='hashcha
 el('offline-action').addEventListener('click',async evt=>{if(el('offline-action').textContent==='Update and reload'){evt.stopImmediatePropagation();try{const doc=await saveDraft();urlState.cancel();clearTimeout(urlTimer);history.replaceState(null,'',urlState.build(doc,{run:!paused}).href);const registration=await navigator.serviceWorker.getRegistration();if(registration?.waiting){navigator.serviceWorker.addEventListener('controllerchange',()=>location.reload(),{once:true});registration.waiting.postMessage({type:'activate-update'});}}catch(e){handleError(e);}}},true);
 addEventListener('offline-before-reload',()=>drafts.attempt(program,dirty));addEventListener('pagehide',()=>sessionSet('idle'));document.addEventListener('visibilitychange',markSession);
 async function openURL(){
+ aiUI?.cancel();aiHold=false;
  navigationError=null;const own=++navigationRevision;urlState.cancel();clearTimeout(urlTimer);scheduler.cancel();clearTimeout(snapshotTimer);hashbin.cancelLoad();
  try{
   const parsed=urlState.parse(location.href);let next=structuredClone(Examples[0].document),initialRun=!abnormal&&parsed.run!==false,cid=null;
@@ -103,6 +108,7 @@ async function openURL(){
  }catch(error){if(own!==navigationRevision)return;navigationError=error.message;status(error.message);if(!ready)await start(false).catch(handleError);}
  finally{document.body.dataset.ready='true';}
 }
+const aiUI=await mountClientAi({config,type,urlState,container:shell.drawer.body,toolbar:document.querySelector('.toolbar'),status,prepareSnapshot:async()=>{if(loading||!ready)throw Error('Wait for the world to finish opening before asking.');scheduler.cancel();if(ready)await host.request('pause');aiPrepared=await snapshot();aiVersion=revision;status('World paused for AI review.');},getSnapshot:()=>{if(aiVersion!==revision)throw Error('World changed. Reopen Ask to capture a fresh paused snapshot.');return structuredClone(aiPrepared);},getFingerprint:()=>revision,onApply:doc=>{aiHold=true;scheduler.cancel();clearTimeout(snapshotTimer);clearTimeout(urlTimer);navigationRevision++;hashbin.cancelLoad();loading=true;program=type.normalize(doc);editor.setValue(program.src,-1);el('autorun').checked=program.livelier.autorun;revision++;dirty=true;saved=null;drafts.attempt(program,true);aiPrepared=structuredClone(program);aiVersion=revision;void start(false).then(()=>status('Change accepted — press Run.')).catch(handleError);}});
 store.retireLegacyTokens().catch(()=>{});await openURL();
 // Integration hooks for reproducible tests and gallery rendering.
 globalThis.LivelierApp={host,editor,snapshot,loadProgram,run,saveDraft,hashbin,store,get ready(){return ready;},get revision(){return revision;}};

@@ -4,7 +4,7 @@ function element(){return {textContent:'',disabled:false,open:false,addEventList
 globalThis.document={getElementById:id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id);},createTextNode:text=>({textContent:text}),createElement:element,querySelector(){return null;},body:element()};
 globalThis.location={href:'https://curtcox.github.io/livelier/'};
 globalThis.HashBinDocuments=require('../src/fragment-config.mjs').HashBinDocuments;
-const {HashBinPanel}=require('../vendor/fragment-kit-v0.3.5/src/index.js');
+const {HashBinPanel}=require('../vendor/fragment-kit-v0.4.3/src/index.js');
 const {urlState,HashBinDocuments}=require('../src/fragment-config.mjs');
 test('Publish starts synchronously in the approval click; a changed document requires a fresh review',async()=>{
  let version=0,published=0,saved=0;

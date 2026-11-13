@@ -1,5 +1,5 @@
 const test=require('node:test'),assert=require('node:assert/strict');
-const {urlState,config,type}=require('../src/fragment-config.mjs'),{createUrlState}=require('../vendor/fragment-kit-v0.3.5/src/index.js');
+const {urlState,config,type}=require('../src/fragment-config.mjs'),{createUrlState}=require('../vendor/fragment-kit-v0.4.3/src/index.js');
 const canonical=createUrlState({config,type}),corpus=require('./legacy-urls.json');
 for(const entry of corpus.cases.filter(entry=>entry.kind==='source'))test('production world adapter retains '+entry.id,()=>{const doc=entry.raw?urlState.documents.parse(entry.raw):type.normalize({src:entry.src});assert.deepEqual(urlState.parse(entry.href).doc,doc);assert.deepEqual(urlState.parse(canonical.build(doc).href).doc,doc);assert.deepEqual(urlState.parse(urlState.build(doc).href).doc,doc);});
 test('world property ordering and fields survive an envelope roundtrip',()=>{const doc=type.normalize({src:'',livelier:{world:{v:1,root:{class:'World',props:{name:'world',fill:'red'},submorphs:[]},connections:[]}}});assert.equal(type.isDefault(doc),false);assert.equal(JSON.stringify(urlState.documents.parse(urlState.documents.serialize(doc))),JSON.stringify(doc));});

@@ -1,4 +1,4 @@
-import * as kit from '../vendor/fragment-kit-v0.3.5/src/index.js';
+import * as kit from '../vendor/fragment-kit-v0.4.3/src/index.js';
 import appConfig from '../fragment-kit.config.json' with {type:'json'};
 export const config=kit.createConfig(appConfig);
 export const emptyWorld=()=>({v:1,root:{class:'World',props:{},submorphs:[]},connections:[]});
@@ -19,4 +19,7 @@ export function publishTransactions(storage){
 export class HashBinStore extends kit.HashBinStore{constructor(options={}){let storage;try{storage=globalThis.sessionStorage;}catch{}super({config,type,transactionStorage:publishTransactions(storage),...options});}}
 export const ShareLinks={build:({url,run,view,...doc})=>urlState.build(doc,{url,run,view}),parse:href=>{const intent=urlState.parse(href);return intent.kind==='none'?null:{...intent,...intent.doc};}};
 export const LZString={compressToEncodedURIComponent:kit.compress,decompressFromEncodedURIComponent:kit.decompress};
-export {ShareClient} from '../vendor/fragment-kit-v0.3.5/src/index.js';
+export {ShareClient} from '../vendor/fragment-kit-v0.4.3/src/index.js';
+
+// AI is a separate opt-in entry point; document loading never creates a connection.
+type.ai={"describe":"Livelier JavaScript src. Preserve kernel, world snapshot and autorun preference. Ask captures a paused fresh world. Accepted source waits for explicit Run in the opaque world, never the editor.","paths":["/src"]};
